@@ -7,3 +7,4 @@ a.out
 .vcode/
 */.vcode/
 */*/.vcode/
+*/*/obj/
