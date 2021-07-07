@@ -1,5 +1,45 @@
 #include "../inc/phonebook.hpp"
 
+void add_contact(Contact *phonebook) {
+  int i = 0;
+
+  for (; i < 8; i++) {
+    if (phonebook[i].getFirstName().empty()) {
+      break ;
+    }
+  }
+  phonebook[i].setFirstName("Jonny");
+}
+
+void search_contact(Contact *phonebook) {
+  // if (input.length() > 10) {
+    // input.replace(9, 1, ".");
+  // }
+  // std::cout << std::setw(10) << input.substr(0, 10);
+  // std::cout << "|" << std::endl;
+  const std::string infos[4] = {
+    "index",
+    "first name",
+    "last name",
+    "nickname"
+  };
+
+  for (int i = 0; i < 4; i++) {
+    std::cout << std::setw(10) << infos[i];
+    std::cout << "|";
+    if (i == 3)
+      std::cout << std::endl;
+  }
+  for (int i = 0; i < 8; i++) {
+    if (!phonebook[i].getFirstName().empty()) {
+      std::cout << std::setw(10) << i;
+      std::cout << "|";
+      std::cout << std::setw(10) << phonebook[i].getFirstName();
+      std::cout << "|" << std::endl;
+    }
+  }
+}
+
 int main(void) {
   std::cout << "--- Phonebook ---" << std::endl;
   std::cout << "Available commands: EXIT, ADD, SEARCH." << std::endl;
@@ -15,18 +55,13 @@ int main(void) {
       std::cout << "EXIT" << std::endl;
       return 0;
     } else if (input.compare("ADD") == 0) {
-      std::cout << "ADD" << std::endl;
+      add_contact(phonebook);
     } else if (input.compare("SEARCH") == 0) {
-      std::cout << "SEARCH" << std::endl;
+      search_contact(phonebook);
     } else {
       std::cout << "Error: invalid command." << std::endl;
       std::cout << "Available commands: EXIT, ADD, SEARCH." << std::endl;
     }
-    // if (input.length() > 10) {
-      // input.replace(9, 1, ".");
-    // }
-    // std::cout << std::setw(10) << input.substr(0, 10);
-    // std::cout << "|" << std::endl;
   }
   return 0;
 }

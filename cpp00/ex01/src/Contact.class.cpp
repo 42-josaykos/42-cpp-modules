@@ -1,7 +1,6 @@
 #include "../inc/phonebook.hpp"
 
-Contact::Contact(std::string name) {
-  setName(name);
+Contact::Contact() {
   return ;
 }
 
@@ -9,10 +8,10 @@ Contact::~Contact(void) {
   return ;
 }
 
-void Contact::setName(std::string name) {
-  this->_name = name;
+void Contact::setFirstName(std::string firstName) {
+  this->_firstName = firstName;
 }
 
-std::string Contact::getName(void) const {
-  return this->_name;
+std::string Contact::getFirstName(void) const {
+  return this->_firstName;
 }
