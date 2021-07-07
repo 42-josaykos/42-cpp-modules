@@ -5,10 +5,13 @@
 
 class Contact {
   public:
-    std::string name;
-
-    Contact(void);
+    Contact(std::string name="empty");
     ~Contact(void);
+    void setName(std::string);
+    std::string getName(void) const;
+
+  private:
+    std::string _name;
 };
 
 #endif
