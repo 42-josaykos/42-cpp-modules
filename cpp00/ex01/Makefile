@@ -5,7 +5,7 @@ CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 INC = -Iinc
 
 SRCDIR = src/
-SRCS = phonebook.cpp
+SRCS = main.cpp Contact.class.cpp
 SRC = $(addprefix $(SRCDIR),$(SRCS))
 OBJDIR = obj/
 OBJ = $(addprefix $(OBJDIR),$(SRCS:.cpp=.o))
@@ -25,7 +25,7 @@ clean:
 	rm -rf $(OBJDIR)
 
 fclean: clean
-	rm -rf $(NAME)
+	rm -rf $(NAME) a.out
 
 re: clean fclean all
 
