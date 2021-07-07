@@ -8,21 +8,17 @@ void add_contact(Contact *phonebook) {
       break ;
     }
   }
-  phonebook[i].setFirstName("Jonny");
+  phonebook[i].setFirstName("12345678901");
 }
 
 void search_contact(Contact *phonebook) {
-  // if (input.length() > 10) {
-    // input.replace(9, 1, ".");
-  // }
-  // std::cout << std::setw(10) << input.substr(0, 10);
-  // std::cout << "|" << std::endl;
   const std::string infos[4] = {
     "index",
     "first name",
     "last name",
     "nickname"
   };
+  std::string data;
 
   for (int i = 0; i < 4; i++) {
     std::cout << std::setw(10) << infos[i];
@@ -34,9 +30,13 @@ void search_contact(Contact *phonebook) {
     if (!phonebook[i].getFirstName().empty()) {
       std::cout << std::setw(10) << i;
       std::cout << "|";
-      std::cout << std::setw(10) << phonebook[i].getFirstName();
-      std::cout << "|" << std::endl;
+      data = phonebook[i].getFirstName();
+      if (data.length() > 10) {
+        data.replace(9, 1, ".");
+      }
+      std::cout << std::setw(10) << data.substr(0, 10);
     }
+    std::cout << "|" << std::endl;
   }
 }
 
