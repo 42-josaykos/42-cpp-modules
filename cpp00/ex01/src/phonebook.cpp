@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include <string>
 
 int main(void) {
@@ -8,6 +9,10 @@ int main(void) {
   std::cout << "> ";
   std::getline(std::cin, input);
 
-  std::cout << "Result: " << input << std::endl;
+  if (input.length() > 10) {
+    input.replace(9, 1, ".");
+  }
+  std::cout << std::setw(10) << input.substr(0, 10);
+  std::cout << "|" << std::endl;
   return 0;
 }
