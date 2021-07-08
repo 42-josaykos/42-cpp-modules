@@ -1,24 +1,8 @@
 #include "../inc/phonebook.hpp"
 
-void add_contact(Contact *phonebook) {
-  int i = 0;
-
-  for (; i < 8; i++) {
-    if (phonebook[i].getFirstName().empty()) {
-      break ;
-    }
-  }
-  phonebook[i].setFirstName("12345678901");
-}
-
-void search_contact(Contact *phonebook) {
-  const std::string infos[4] = {
-    "index",
-    "first name",
-    "last name",
-    "nickname"
-  };
+void print_list(Contact *phonebook) {
   std::string data[11];
+  const std::string infos[4] = {"index", "first name", "last name", "nickname"};
 
   for (int i = 0; i < 4; i++) {
     std::cout << std::setw(10) << infos[i];
@@ -29,7 +13,6 @@ void search_contact(Contact *phonebook) {
   }
   for (int i = 0; i < 8; i++) {
     phonebook[i].getInfos(data);
-
     std::cout << std::setw(10) << i;
     std::cout << "|";
     for(int j = 0; j < 4; j++) {
@@ -44,6 +27,17 @@ void search_contact(Contact *phonebook) {
       }
     }
   }
+}
+
+void add_contact(Contact *phonebook) {
+  int i = 0;
+  std::string data[11];
+  data[0] = "Jonny";
+  phonebook[i].setInfos(data);
+}
+
+void search_contact(Contact *phonebook) {
+  print_list(phonebook);
 }
 
 int main(void) {

@@ -8,13 +8,19 @@ Contact::~Contact(void) {
   return ;
 }
 
-void Contact::setFirstName(std::string firstName) {
-  this->_firstName = firstName;
+void Contact::setInfos(std::string* infos) {
+  this->_firstName = infos[0];
+  this->_lastName = infos[1];
+  this->_nickname = infos[2];
+  this->_login = infos[3];
+  this->_postalAddress = infos[4];
+  this->_email = infos[5];
+  this->_phoneNumber = infos[6];
+  this->_birthday = infos[7];
+  this->_favoriteMeal = infos[8];
+  this->_underwearColor = infos[9];
+  this->_darkestSecret = infos[10];
   return ;
-}
-
-std::string Contact::getFirstName(void) const {
-  return this->_firstName;
 }
 
 void Contact::getInfos(std::string* infos) {
