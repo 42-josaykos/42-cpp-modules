@@ -8,7 +8,18 @@ class Contact {
     Contact(void);
     ~Contact(void);
     void setFirstName(std::string);
+    void setLastName(std::string);
+    void setNickName(std::string);
+    void setLogin(std::string);
+    void setPostalAddress(std::string);
+    void setEmail(std::string);
+    void setPhoneNumber(std::string);
+    void setBirthday(std::string);
+    void setFavoriteMeal(std::string);
+    void setUnderwearColor(std::string);
+    void setDarkestSecret(std::string);
     std::string getFirstName(void) const;
+    void getInfos(std::string* infos);
 
   private:
     std::string _firstName;

@@ -7,6 +7,7 @@
       "command": "clang++",
       "args": [
         "-g",
+        "-fstandalone-debug",
         "-std=c++98",
         "-Wall",
         "-Wextra",

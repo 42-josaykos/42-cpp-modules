@@ -18,25 +18,31 @@ void search_contact(Contact *phonebook) {
     "last name",
     "nickname"
   };
-  std::string data;
+  std::string data[11];
 
   for (int i = 0; i < 4; i++) {
     std::cout << std::setw(10) << infos[i];
     std::cout << "|";
-    if (i == 3)
+    if (i == 3) {
       std::cout << std::endl;
+    }
   }
   for (int i = 0; i < 8; i++) {
-    if (!phonebook[i].getFirstName().empty()) {
-      std::cout << std::setw(10) << i;
-      std::cout << "|";
-      data = phonebook[i].getFirstName();
-      if (data.length() > 10) {
-        data.replace(9, 1, ".");
+    phonebook[i].getInfos(data);
+
+    std::cout << std::setw(10) << i;
+    std::cout << "|";
+    for(int j = 0; j < 4; j++) {
+      if (data[j].length() > 10) {
+        data[j].replace(9, 1, ".");
       }
-      std::cout << std::setw(10) << data.substr(0, 10);
+      std::cout << std::setw(10) << data[j].substr(0, 10);
+      if (j != 3) {
+        std::cout << "|";
+      } else {
+        std::cout << std::endl;
+      }
     }
-    std::cout << "|" << std::endl;
   }
 }
 
