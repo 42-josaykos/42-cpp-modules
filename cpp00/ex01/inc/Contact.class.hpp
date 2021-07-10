@@ -7,6 +7,7 @@ class Contact {
   public:
     Contact(void);
     ~Contact(void);
+    bool is_empty;
     void setInfos(std::string* infos);
     void getInfos(std::string* infos);
 

@@ -3,6 +3,7 @@
 
 # include <iostream>
 # include <iomanip>
+# include <sstream>
 # include "Phonebook.class.hpp"
 # include "Contact.class.hpp"
 

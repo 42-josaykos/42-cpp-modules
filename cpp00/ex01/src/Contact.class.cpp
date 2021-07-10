@@ -1,6 +1,7 @@
 #include "../inc/phonebook.hpp"
 
 Contact::Contact() {
+  this->is_empty = true;
   return ;
 }
 
