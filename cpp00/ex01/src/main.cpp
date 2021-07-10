@@ -1,7 +1,7 @@
 #include "../inc/phonebook.hpp"
 
 void print_list(Contact *contacts) {
-  std::string data[11];
+  std::string data[5];
   const std::string infos[4] = {"index", "first name", "last name", "nickname"};
 
   for (int i = 0; i < 4; i++) {
@@ -30,9 +30,9 @@ void print_list(Contact *contacts) {
 
 void add_contact(Contact *contacts) {
   int i = 0;
-  std::string data[11];
+  std::string data[5];
   std::string input;
-  const std::string prompt[11] = {
+  const std::string prompt[5] = {
     "First Name ? ", "Last Name ? ", "Nickname ? ",
     "Phone Number ? ", "Darkest Secret ? "
   };
