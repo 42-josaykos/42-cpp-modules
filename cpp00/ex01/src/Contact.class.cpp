@@ -18,10 +18,10 @@ void Contact::setInfos(std::string* infos) {
 }
 
 void Contact::getInfos(std::string* infos) {
-    infos[0] = this->_firstName;
-    infos[1] = this->_lastName;
-    infos[2] = this->_nickname;
-    infos[3] = this->_phoneNumber;
-    infos[4] = this->_darkestSecret;
+  infos[0] = this->_firstName;
+  infos[1] = this->_lastName;
+  infos[2] = this->_nickname;
+  infos[3] = this->_phoneNumber;
+  infos[4] = this->_darkestSecret;
   return ; 
 }

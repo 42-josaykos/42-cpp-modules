@@ -1,6 +1,6 @@
 #include "../inc/phonebook.hpp"
 
-void print_list(Contact *phonebook) {
+void print_list(Contact *contacts) {
   std::string data[11];
   const std::string infos[4] = {"index", "first name", "last name", "nickname"};
 
@@ -12,7 +12,7 @@ void print_list(Contact *phonebook) {
     }
   }
   for (int i = 0; i < 8; i++) {
-    phonebook[i].getInfos(data);
+    contacts[i].getInfos(data);
     std::cout << std::setw(10) << i;
     std::cout << "|";
     for(int j = 0; j < 3; j++) {
@@ -28,7 +28,7 @@ void print_list(Contact *phonebook) {
   }
 }
 
-void add_contact(Contact *phonebook) {
+void add_contact(Contact *contacts) {
   int i = 0;
   std::string data[11];
   std::string input;
@@ -42,11 +42,11 @@ void add_contact(Contact *phonebook) {
     std::getline(std::cin, input);
     data[j] = input;
   } 
-  phonebook[i].setInfos(data);
+  contacts[i].setInfos(data);
 }
 
-void search_contact(Contact *phonebook) {
-  print_list(phonebook);
+void search_contact(Contact *contacts) {
+  print_list(contacts);
 }
 
 int main(void) {
@@ -54,7 +54,7 @@ int main(void) {
   std::cout << "Available commands: EXIT, ADD, SEARCH." << std::endl;
 
   std::string input;
-  Contact phonebook[8];
+  Phonebook phonebook;
 
   while (1) {
     std::cout << "> ";
@@ -64,9 +64,9 @@ int main(void) {
       std::cout << "EXIT" << std::endl;
       return 0;
     } else if (input.compare("ADD") == 0) {
-      add_contact(phonebook);
+      add_contact(phonebook.contacts);
     } else if (input.compare("SEARCH") == 0) {
-      search_contact(phonebook);
+      search_contact(phonebook.contacts);
     } else {
       std::cout << "Error: invalid command." << std::endl;
       std::cout << "Available commands: EXIT, ADD, SEARCH." << std::endl;
