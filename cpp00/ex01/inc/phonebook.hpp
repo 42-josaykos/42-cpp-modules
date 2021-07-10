@@ -6,4 +6,6 @@
 # include "Phonebook.class.hpp"
 # include "Contact.class.hpp"
 
+std::string trim_whitespaces(std::string str);
+
 #endif

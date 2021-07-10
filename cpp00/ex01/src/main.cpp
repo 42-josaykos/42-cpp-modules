@@ -60,6 +60,7 @@ int main(void) {
     std::cout << "> ";
     std::getline(std::cin, input);
 
+    input = trim_whitespaces(input);
     if (std::cin.eof() || input.compare("EXIT") == 0) {
       std::cout << "EXIT" << std::endl;
       return 0;
