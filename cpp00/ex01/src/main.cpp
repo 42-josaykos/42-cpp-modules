@@ -33,12 +33,11 @@ void add_contact(Contact *phonebook) {
   std::string data[11];
   std::string input;
   const std::string prompt[11] = {
-    "First Name ? ", "Last Name ? ", "Nickname ? ", "Login ? ",
-    "Postal Address ? ", "Email ? ", "Phone Number ? ", "Birthday ? ",
-    "Favorite Meal ? ", "Underwear Color ? ", "Darkest Secret ? "
+    "First Name ? ", "Last Name ? ", "Nickname ? ",
+    "Phone Number ? ", "Darkest Secret ? "
   };
 
-  for (int j = 0; j < 11; j++) {
+  for (int j = 0; j < 5; j++) {
     std::cout << prompt[j];
     std::getline(std::cin, input);
     data[j] = input;
