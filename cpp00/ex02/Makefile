@@ -1,11 +1,11 @@
-NAME = phonebook
+NAME = accounts
 
 CXX = clang++
 CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 INC = -Iinc
 
 SRCDIR = src/
-SRCS = main.cpp utils.cpp Phonebook.class.cpp Contact.class.cpp
+SRCS = tests.cpp Account.cpp
 OBJDIR = obj/
 OBJ = $(addprefix $(OBJDIR),$(SRCS:.cpp=.o))
 
