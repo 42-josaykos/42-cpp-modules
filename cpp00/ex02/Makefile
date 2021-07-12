@@ -27,4 +27,3 @@ fclean: clean
 	rm -rf $(NAME) a.out
 
 re: clean fclean all
-
