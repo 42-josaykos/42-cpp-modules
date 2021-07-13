@@ -24,6 +24,6 @@ clean:
 	rm -rf $(OBJDIR)
 
 fclean: clean
-	rm -rf $(NAME) a.out
+	rm -rf $(NAME) a.out results.log
 
 re: clean fclean all

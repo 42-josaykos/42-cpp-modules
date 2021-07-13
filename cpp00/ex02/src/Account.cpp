@@ -19,14 +19,14 @@ int Account::getNbWithdrawals(void) { return _totalNbWithdrawals; }
 void Account::displayAccountsInfos(void) {
   _displayTimestamp();
   std::cout << "accounts:" << _nbAccounts;
-  std::cout << ";amount:" << _totalAmount;
+  std::cout << ";total:" << _totalAmount;
   std::cout << ";deposits:" << _totalNbDeposits;
   std::cout << ";withdrawals:" << _totalNbWithdrawals;
   std::cout << std::endl;
   return;
 }
 
-Account::Account(int initial_deposit) {
+Account::Account(int initial_deposit) : _amount(initial_deposit) {
   _nbAccounts++;
   this->_accountIndex = _nbAccounts - 1;
   _displayTimestamp();
@@ -48,23 +48,42 @@ Account::~Account(void) {
 }
 
 void Account::makeDeposit(int deposit) {
-  this->_amount += deposit;
+  _displayTimestamp();
   this->_nbDeposits++;
+  _totalNbDeposits++;
   _totalAmount += deposit;
+  std::cout << "index:" << this->_accountIndex;
+  std::cout << ";p_amount:" << this->_amount;
+  std::cout << ";deposit:" << deposit;
+  this->_amount += deposit;
+  std::cout << ";amount:" << this->_amount;
+  std::cout << ";nb_deposits:" << this->_nbDeposits;
+  std::cout << std::endl;
   return;
 }
 
 bool Account::makeWithdrawal(int withdrawal) {
-  this->_amount -= withdrawal;
-  this->_nbWithdrawals++;
-  _totalAmount -= withdrawal;
+  _displayTimestamp();
+  std::cout << "index:" << this->_accountIndex;
+  std::cout << ";p_amount:" << this->_amount;
+  if (this->_amount >= withdrawal) {
+    this->_nbWithdrawals++;
+    _totalNbWithdrawals++;
+    _totalAmount -= withdrawal;
+    std::cout << ";withdrawal:" << withdrawal;
+    this->_amount -= withdrawal;
+    std::cout << ";amount:" << this->_amount;
+    std::cout << ";nb_withdrawals:" << this->_nbDeposits;
+    std::cout << std::endl;
+    return (true);
+  } else {
+    std::cout << ";withdrawal:refused";
+    std::cout << std::endl;
+  }
   return false;
 }
 
-int Account::checkAmount(void) const {
-  int ret = 0;
-  return ret;
-}
+int Account::checkAmount(void) const { return this->_amount; }
 
 void Account::displayStatus(void) const {
   _displayTimestamp();
