@@ -19,7 +19,7 @@ int print_list(Contact *contacts) {
       contacts[i].getInfos(data);
       std::cout << std::setw(10) << i;
       std::cout << "|";
-      for(int j = 0; j < 3; j++) {
+      for (int j = 0; j < 3; j++) {
         if (data[j].length() > 10) {
           data[j].replace(9, 1, ".");
         }
@@ -38,20 +38,21 @@ void add_contact(Contact *contacts) {
   int i = 0;
   std::string data[5];
   std::string input;
-  const std::string prompt[5] = {
-    "First Name ? ", "Last Name ? ", "Nickname ? ",
-    "Phone Number ? ", "Darkest Secret ? "
-  };
+  const std::string prompt[5] = {"First Name ? ", "Last Name ? ", "Nickname ? ",
+                                 "Phone Number ? ", "Darkest Secret ? "};
 
-  while (!contacts[i].is_empty) {
+  while (i < 8 && !contacts[i].is_empty) {
     i++;
+  }
+  if (i == 8) {
+    i = 7;
   }
   for (int j = 0; j < 5; j++) {
     std::cout << prompt[j];
     std::getline(std::cin, input);
     input = trim_whitespaces(input);
     data[j] = input;
-  } 
+  }
   contacts[i].setInfos(data);
   contacts[i].is_empty = false;
 }
@@ -60,12 +61,10 @@ void print_contact_details(Contact *contacts, std::string input) {
   int index;
   int nb = 0;
   std::string data[5];
-  const std::string infos[5] = {
-    "First Name: ", "Last Name: ", "Nickname: ",
-    "Phone Number: ", "Darkest Secret: "
-  };
+  const std::string infos[5] = {"First Name: ", "Last Name: ", "Nickname: ",
+                                "Phone Number: ", "Darkest Secret: "};
 
-  while (!contacts[nb].is_empty) {
+  while (nb < 8 && !contacts[nb].is_empty) {
     nb++;
   }
   std::istringstream convert(input);
@@ -74,7 +73,7 @@ void print_contact_details(Contact *contacts, std::string input) {
   }
   if (index >= 0 && index < nb) {
     contacts[index].getInfos(data);
-    for (int i = 0; i < 5; i++){
+    for (int i = 0; i < 5; i++) {
       std::cout << std::setw(16) << infos[i] << data[i] << std::endl;
     }
   } else {
