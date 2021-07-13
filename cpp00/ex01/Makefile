@@ -5,7 +5,7 @@ CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 INC = -Iinc
 
 SRCDIR = src/
-SRCS = main.cpp utils.cpp Phonebook.class.cpp Contact.class.cpp
+SRCS = main.cpp utils.cpp Phonebook.cpp Contact.cpp
 OBJDIR = obj/
 OBJ = $(addprefix $(OBJDIR),$(SRCS:.cpp=.o))
 

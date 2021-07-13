@@ -1,4 +1,4 @@
-#include "../inc/phonebook.hpp"
+#include "../inc/common.hpp"
 
 Contact::Contact() {
   this->is_empty = true;
