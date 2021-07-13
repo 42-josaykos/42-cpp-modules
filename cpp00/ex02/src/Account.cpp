@@ -1,4 +1,6 @@
 #include "Account.hpp"
+#include <ctime>
+#include <iomanip>
 #include <iostream>
 
 int Account::_nbAccounts;
@@ -48,13 +50,20 @@ int Account::checkAmount(void) const {
 }
 
 void Account::displayStatus(void) const {
-  std::cout << this->_nbDeposits << std::endl;
-  std::cout << this->_totalNbWithdrawals << std::endl;
+  // std::cout << this->_nbDeposits << std::endl;
+  // std::cout << this->_totalNbWithdrawals << std::endl;
   return;
 }
 
 void Account::_displayTimestamp(void) {
-  std::cout << "[YYYYMMDD_HHMMSS] ";
+  time_t now = std::time(0);
+  struct tm *tm = std::localtime(&now);
+
+  std::cout.fill('0');
+  std::cout << "[" << (1900 + tm->tm_year) << std::setw(2) << (tm->tm_mon + 1);
+  std::cout << std::setw(2) << tm->tm_mday << "_" << std::setw(2) << tm->tm_hour
+            << std::setw(2) << tm->tm_min << std::setw(2) << tm->tm_sec;
+  std::cout << "] ";
   return;
 }
 
