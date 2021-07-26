@@ -16,3 +16,10 @@ void Zombie::announce(void) const {
   std::cout << this->name << " BraiiiiiiinnnzzzZ..." << std::endl;
   return;
 }
+
+void Zombie::set_name(std::string str) {
+  this->name = str;
+  return;
+}
+
+std::string Zombie::get_name(void) const { return this->name; }
