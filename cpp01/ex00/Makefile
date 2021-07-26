@@ -5,7 +5,11 @@ CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 INC = -Iinc
 
 SRCDIR = src/
-SRCS = main.cpp
+SRCS =	main.cpp \
+				Zombie.cpp \
+				newZombie.cpp \
+				randomChump.cpp
+
 OBJDIR = obj/
 OBJ = $(addprefix $(OBJDIR),$(SRCS:.cpp=.o))
 
