@@ -8,6 +8,6 @@ Zombie *newZombie(std::string name);
 void randomChump(std::string name);
 
 // utils
-std::string nb_to_string(int nb);
+std::string int_to_string(int nb);
 
 #endif

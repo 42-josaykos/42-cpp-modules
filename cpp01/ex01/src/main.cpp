@@ -3,7 +3,7 @@
 Zombie *zombieHorde(int N, std::string name) {
   Zombie *newZombies = new Zombie[N];
   for (int i = 0; i < N; i++) {
-    newZombies[i].set_name(name + "_" + nb_to_string(i + 1));
+    newZombies[i].set_name(name + "_" + int_to_string(i + 1));
     newZombies[i].announce();
   }
   return newZombies;
