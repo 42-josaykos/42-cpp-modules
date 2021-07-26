@@ -6,6 +6,7 @@ INC = -Iinc
 
 SRCDIR = src/
 SRCS =	main.cpp \
+				utils.cpp \
 				Zombie.cpp \
 				newZombie.cpp \
 				randomChump.cpp
