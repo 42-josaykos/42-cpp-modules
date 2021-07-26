@@ -10,7 +10,7 @@ Zombie *zombieHorde(int N, std::string name) {
 }
 
 int main(void) {
-  Zombie *newHorde = zombieHorde(4, "Acolyte");
+  Zombie *newHorde = zombieHorde(10, "Acolyte");
   std::cout << "Pointer to the first Zombie is: " << newHorde->get_name()
             << std::endl;
   delete[] newHorde;

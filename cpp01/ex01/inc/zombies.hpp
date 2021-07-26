@@ -9,5 +9,6 @@ void randomChump(std::string name);
 
 // utils
 std::string int_to_string(int nb);
+int string_to_int(std::string str);
 
 #endif
