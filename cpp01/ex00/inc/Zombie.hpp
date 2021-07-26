@@ -9,7 +9,7 @@ public:
 
   void announce(void) const;
   void set_name(std::string str);
-  void get_name() const;
+  std::string get_name(void) const;
 
 private:
   std::string name;
