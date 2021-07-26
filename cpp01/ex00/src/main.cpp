@@ -1,6 +1,7 @@
 #include "zombies.hpp"
 
 int main(void) {
-  std::cout << "hello zombies" << std::endl;
+  Zombie *myZombie = newZombie("myZombie");
+  delete myZombie;
   return 0;
 }
