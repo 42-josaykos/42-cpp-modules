@@ -16,5 +16,17 @@ int main(void) {
   club2.setType("some other type of club");
   jim.attack();
 
+  Weapon gun = Weapon("gun");
+
+  HumanB jo("jo");
+  jo.attack();
+  jo.setWeapon(gun);
+  jo.attack();
+
+  HumanA bill("bill", gun);
+  bill.attack();
+  gun.setType("\'Smith & Wesson 9mm\'");
+  bill.attack();
+
   return 0;
 }

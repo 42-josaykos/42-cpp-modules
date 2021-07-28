@@ -1,7 +1,5 @@
 #include "Weapon.hpp"
 
-Weapon::Weapon(void) { return; }
-
 Weapon::Weapon(std::string str) : _type(str) { return; }
 
 Weapon::~Weapon(void) { return; }

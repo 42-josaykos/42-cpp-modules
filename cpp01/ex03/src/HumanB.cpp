@@ -1,8 +1,6 @@
 #include "HumanB.hpp"
 
-HumanB::HumanB(void) { return; }
-
-HumanB::HumanB(std::string const name) : _name(name) { return; }
+HumanB::HumanB(std::string const name) : _name(name), _weapon(NULL) { return; }
 
 HumanB::~HumanB(void) { return; }
 
@@ -12,7 +10,12 @@ void HumanB::setWeapon(Weapon& str) {
 }
 
 void HumanB::attack(void) {
-  std::cout << this->_name << " attacks with his " << this->_weapon->getType()
-            << std::endl;
+  if (this->_weapon) {
+    std::cout << this->_name << " attacks with his " << this->_weapon->getType()
+              << std::endl;
+  } else {
+    std::cout << this->_name << " attacks with his... "
+              << "fists!" << std::endl;
+  }
   return;
 }

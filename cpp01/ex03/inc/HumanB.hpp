@@ -7,7 +7,6 @@
 class HumanB {
 
 public:
-  HumanB(void);
   HumanB(std::string const name);
   ~HumanB(void);
 

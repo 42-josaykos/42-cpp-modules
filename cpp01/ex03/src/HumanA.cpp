@@ -1,9 +1,7 @@
 #include "HumanA.hpp"
 
-HumanA::HumanA(void) { return; }
-
-HumanA::HumanA(std::string const name, Weapon& weapon) : _name(name) {
-  this->_weapon = &weapon;
+HumanA::HumanA(std::string const name, Weapon& weapon)
+    : _name(name), _weapon(&weapon) {
   return;
 }
 
