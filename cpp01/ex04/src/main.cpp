@@ -1,3 +1,4 @@
+#include <cstddef>
 #include <fstream>
 #include <iostream>
 #include <sstream>
@@ -16,7 +17,25 @@ int replace(std::string filename, std::string s1, std::string s2) {
 
   std::stringstream sstr;
   sstr << ifs.rdbuf();
-  std::string output = sstr.str();
+  std::string str = sstr.str();
+
+  size_t pos = 0;
+  std::string output;
+
+  while (str.length() != 0) {
+    if ((pos = str.find(s1)) != str.npos) {
+      for (size_t i = 0; i < pos; i++) {
+        output.push_back(str[i]);
+      }
+      str.erase(0, pos + s1.length());
+      output.append(s2);
+    } else {
+      for (size_t i = 0; i < str.length(); i++) {
+        output.push_back(str[i]);
+      }
+      break;
+    }
+  }
 
   std::ofstream ofs((filename + ".replace").c_str());
   ofs << output;
@@ -26,6 +45,6 @@ int replace(std::string filename, std::string s1, std::string s2) {
 }
 
 int main(void) {
-  replace("test", "42", "43");
+  replace("test", "program", "X");
   return 0;
 }
