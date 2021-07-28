@@ -1,5 +1,6 @@
 #include <fstream>
 #include <iostream>
+#include <sstream>
 
 // Create a copy of filename with every occurence of s1 replace by s2
 int replace(std::string filename, std::string s1, std::string s2) {
@@ -13,19 +14,18 @@ int replace(std::string filename, std::string s1, std::string s2) {
     return 1;
   }
 
-  std::string output;
-  while (std::getline(ifs, output)) {
-    std::cout << output;
-  }
-  ifs.close();
+  std::stringstream sstr;
+  sstr << ifs.rdbuf();
+  std::string output = sstr.str();
 
   std::ofstream ofs((filename + ".replace").c_str());
-  ofs << output.c_str();
+  ofs << output;
+  ifs.close();
   ofs.close();
   return 0;
 }
 
 int main(void) {
-  replace("test", "1", "2");
+  replace("test", "42", "43");
   return 0;
 }
