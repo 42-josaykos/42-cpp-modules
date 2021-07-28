@@ -12,11 +12,11 @@ public:
   ~HumanB(void);
 
   void attack(void);
-  void setWeapon(Weapon const str);
+  void setWeapon(Weapon& str);
 
 private:
   std::string _name;
-  Weapon _weapon;
+  Weapon* _weapon;
 };
 
 #endif
