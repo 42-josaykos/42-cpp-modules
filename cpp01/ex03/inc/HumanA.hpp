@@ -8,14 +8,14 @@ class HumanA {
 
 public:
   HumanA(void);
-  HumanA(std::string const name, Weapon weapon);
+  HumanA(std::string const name, Weapon& weapon);
   ~HumanA(void);
 
   void attack(void);
 
 private:
   std::string _name;
-  Weapon _weapon;
+  Weapon* _weapon;
 };
 
 #endif
