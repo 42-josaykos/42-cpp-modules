@@ -6,6 +6,9 @@ INC = -Iinc
 
 SRCDIR = src/
 SRCS =	main.cpp \
+				Weapon.cpp \
+				HumanA.cpp \
+				HumanB.cpp \
 
 OBJDIR = obj/
 OBJ = $(addprefix $(OBJDIR),$(SRCS:.cpp=.o))
