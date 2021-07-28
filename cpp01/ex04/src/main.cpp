@@ -2,6 +2,13 @@
 #include <iostream>
 #include <sstream>
 
+std::string str_to_upper(std::string str) {
+  for (size_t i = 0; i < str.length(); ++i) {
+    str[i] = std::toupper(str[i]);
+  }
+  return str;
+}
+
 std::string const get_output(std::string str, std::string s1, std::string s2) {
   std::string output;
   size_t pos = 0;
@@ -39,7 +46,7 @@ int replace(std::string filename, std::string s1, std::string s2) {
   std::string str = sstr.str();
   std::string output = get_output(str, s1, s2);
 
-  std::ofstream ofs((filename + ".replace").c_str());
+  std::ofstream ofs((str_to_upper(filename) + ".replace").c_str());
   ofs << output;
   ifs.close();
   ofs.close();

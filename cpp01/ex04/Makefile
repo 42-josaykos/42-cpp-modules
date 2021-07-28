@@ -25,7 +25,7 @@ clean:
 	rm -rf $(OBJDIR)
 
 fclean: clean
-	rm -rf $(NAME) a.out test.replace
+	rm -rf $(NAME) a.out *.replace
 
 re: clean fclean all
 
