@@ -3,11 +3,14 @@
 
 #include <iostream>
 
+const std::string MSG[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+
 class Karen {
 public:
   Karen(void);
   ~Karen(void);
 
+  void (Karen::*fpointer[4])(void);
   void complain(std::string level);
 
 private:
