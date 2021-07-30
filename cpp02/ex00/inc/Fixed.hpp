@@ -12,12 +12,14 @@ public:
 
   Fixed& operator=(Fixed const& rhs);
 
-  int getRawBits(void);
+  int getRawBits(void) const;
   void setRawBits(int const raw);
 
 private:
   static int const _bits = 8;
-  int _val;
+  int _rawBits;
 };
+
+std::ostream& operator<<(std::ostream& out, Fixed const& inst);
 
 #endif

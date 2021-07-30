@@ -6,8 +6,7 @@ INC = -Iinc
 
 SRCDIR = src/
 SRCS =	main.cpp \
-				strutils.cpp \
-				Karen.cpp
+				Fixed.cpp
 
 OBJDIR = obj/
 OBJ = $(addprefix $(OBJDIR),$(SRCS:.cpp=.o))
