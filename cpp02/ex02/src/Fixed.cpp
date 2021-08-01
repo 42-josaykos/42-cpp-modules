@@ -4,41 +4,31 @@
 ///////////////// constructors /////////////////////
 
 // default
-Fixed::Fixed(void) : _rawBits(0) {
-  std::cout << "Default constructor called" << std::endl;
-  return;
-}
+Fixed::Fixed(void) : _rawBits(0) { return; }
 
 // copy
 Fixed::Fixed(Fixed const& src) {
-  std::cout << "Copy constructor called" << std::endl;
   *this = src;
   return;
 }
 
 // params
 Fixed::Fixed(int const& nb) : _rawBits(nb) {
-  std::cout << "Int constructor called" << std::endl;
   this->_rawBits = nb << this->_bits; // multiply nb by 256
   return;
 }
 
 Fixed::Fixed(float const& nb) {
-  std::cout << "Float constructor called" << std::endl;
   this->_rawBits = roundf(nb * (1 << this->_bits)); // multiply nb by 256
   return;
 }
 
 // destructor
-Fixed::~Fixed(void) {
-  std::cout << "Destructor called" << std::endl;
-  return;
-}
+Fixed::~Fixed(void) { return; }
 
 /////////// operator overloads ////////////////////
 
 Fixed& Fixed::operator=(Fixed const& rhs) {
-  std::cout << "Assignation operator called" << std::endl;
   if (this != &rhs) {
     this->_rawBits = rhs.getRawBits();
   }
@@ -80,11 +70,11 @@ Fixed Fixed::operator-(const Fixed& rhs) const {
 }
 
 Fixed Fixed::operator*(const Fixed& rhs) const {
-  return this->_rawBits * rhs._rawBits;
+  return this->toFloat() * rhs.toFloat();
 }
 
 Fixed Fixed::operator/(const Fixed& rhs) const {
-  return this->_rawBits / rhs._rawBits;
+  return this->toFloat() / rhs.toFloat();
 }
 
 // INCREMENTATIONS
