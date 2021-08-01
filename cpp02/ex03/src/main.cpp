@@ -7,7 +7,8 @@ int main(void) {
   Point const A(0, 0);
   Point const B(20, 0);
   Point const C(10, 30);
-  Point const P(10, 0.1);
+  // Point const P(10, 0.1);
+  Point const P(C);
 
   std::cout << "A = " << A << std::endl;
   std::cout << "B = " << B << std::endl;
