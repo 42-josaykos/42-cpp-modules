@@ -45,6 +45,101 @@ Fixed& Fixed::operator=(Fixed const& rhs) {
   return *this;
 }
 
+// COMPARISONS
+bool Fixed::operator>(Fixed const& rhs) const {
+  return this->_rawBits > rhs._rawBits;
+}
+
+bool Fixed::operator<(Fixed const& rhs) const {
+  return this->_rawBits < rhs._rawBits;
+}
+
+bool Fixed::operator>=(Fixed const& rhs) const {
+  return this->_rawBits >= rhs._rawBits;
+}
+
+bool Fixed::operator<=(Fixed const& rhs) const {
+  return this->_rawBits <= rhs._rawBits;
+}
+
+bool Fixed::operator==(Fixed const& rhs) const {
+  return this->_rawBits == rhs._rawBits;
+}
+
+bool Fixed::operator!=(Fixed const& rhs) const {
+  return this->_rawBits != rhs._rawBits;
+}
+
+// OPERATIONS
+Fixed Fixed::operator+(const Fixed& rhs) const {
+  return this->_rawBits + rhs._rawBits;
+}
+
+Fixed Fixed::operator-(const Fixed& rhs) const {
+  return this->_rawBits - rhs._rawBits;
+}
+
+Fixed Fixed::operator*(const Fixed& rhs) const {
+  return this->_rawBits * rhs._rawBits;
+}
+
+Fixed Fixed::operator/(const Fixed& rhs) const {
+  return this->_rawBits / rhs._rawBits;
+}
+
+// INCREMENTATIONS
+Fixed& Fixed::operator++(void) {
+  this->_rawBits++;
+  return *this;
+}
+
+Fixed Fixed::operator++(int) {
+  Fixed tmp = *this;
+  ++(*this);
+  return tmp;
+}
+
+Fixed& Fixed::operator--(void) {
+  this->_rawBits--;
+  return *this;
+}
+
+Fixed Fixed::operator--(int) {
+  Fixed tmp = *this;
+  --(*this);
+  return tmp;
+}
+
+//////////// static member functions ///////////////
+
+Fixed const& Fixed::min(Fixed const& nb1, Fixed const& nb2) {
+  if (nb1._rawBits < nb2._rawBits) {
+    return (nb1);
+  }
+  return (nb2);
+}
+
+Fixed const& Fixed::max(Fixed const& nb1, Fixed const& nb2) {
+  if (nb1._rawBits > nb2._rawBits) {
+    return (nb1);
+  }
+  return (nb2);
+}
+
+Fixed const& Fixed::min(Fixed& nb1, Fixed& nb2) {
+  if (nb1._rawBits < nb2._rawBits) {
+    return (nb1);
+  }
+  return (nb2);
+}
+
+Fixed const& Fixed::max(Fixed& nb1, Fixed& nb2) {
+  if (nb1._rawBits > nb2._rawBits) {
+    return (nb1);
+  }
+  return (nb2);
+}
+
 //////////// member functions /////////////////////
 
 int Fixed::getRawBits(void) const { return this->_rawBits; }
