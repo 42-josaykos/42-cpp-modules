@@ -1,4 +1,5 @@
 #include "Fixed.hpp"
+#include <cmath>
 
 ///////////////// constructors /////////////////////
 
@@ -18,13 +19,13 @@ Fixed::Fixed(Fixed const& src) {
 // params
 Fixed::Fixed(int const& nb) : _rawBits(nb) {
   std::cout << "Int constructor called" << std::endl;
+  this->_rawBits = nb << this->_bits; // multiply nb by 256
   return;
 }
 
 Fixed::Fixed(float const& nb) {
   std::cout << "Float constructor called" << std::endl;
-  (void)nb;
-
+  this->_rawBits = roundf(nb * (1 << this->_bits)); // multiply nb by 256
   return;
 }
 
@@ -51,20 +52,19 @@ int Fixed::getRawBits(void) const { return this->_rawBits; }
 void Fixed::setRawBits(int const raw) { this->_rawBits = raw; }
 
 float Fixed::toFloat(void) const {
-  float res = 0.0f;
+  // divide nb by 256
+  float res = static_cast<float>(this->_rawBits) / (1 << this->_bits);
   return res;
 }
 
 int Fixed::toInt(void) const {
-  int res = 0;
-
-  res = this->_rawBits;
+  int res = this->_rawBits >> this->_bits; // divide nb by 256
   return res;
 }
 
 //////////// non-member functions //////////////////
 
 std::ostream& operator<<(std::ostream& out, Fixed const& inst) {
-  out << inst.getRawBits();
+  out << inst.toFloat();
   return out;
 }
