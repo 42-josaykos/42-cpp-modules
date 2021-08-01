@@ -12,7 +12,7 @@ Fixed area(Point const& a, Point const& b, Point const& c) {
   return Fixed(abs(area));
 }
 
-bool bsp(Point const& a, Point const& b, Point const& c, Point const& point) {
+bool bsp(Point const a, Point const b, Point const c, Point const point) {
   Fixed ABC = area(a, b, c);
   Fixed PAB = area(point, a, b);
   Fixed PBC = area(point, b, c);
