@@ -21,4 +21,6 @@ private:
   Fixed const y;
 };
 
+std::ostream& operator<<(std::ostream& out, Point const& inst);
+
 #endif
