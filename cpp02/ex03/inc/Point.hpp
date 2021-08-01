@@ -11,7 +11,7 @@ public:
   Point(Point const& src);
   ~Point(void);
 
-  Point& operator=(Point const& rhs);
+  Point& operator=(Point const&);
 
   Fixed getX(void) const;
   Fixed getY(void) const;

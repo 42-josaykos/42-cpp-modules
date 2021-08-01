@@ -9,7 +9,7 @@ Point::Point(Point const& src) : x(src.getX()), y(src.getY()) { return; }
 
 Point::~Point(void) { return; }
 
-Point& Point::operator=(Point const& rhs) { return *this; }
+Point& Point::operator=(Point const&) { return *this; }
 
 Fixed Point::getX(void) const { return this->x; }
 
