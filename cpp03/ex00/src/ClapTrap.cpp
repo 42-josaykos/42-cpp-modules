@@ -12,6 +12,11 @@ ClapTrap::ClapTrap(std::string name)
   return;
 }
 
+ClapTrap::ClapTrap(ClapTrap const& src) {
+  *this = src;
+  return;
+}
+
 ClapTrap::~ClapTrap(void) {
   std::cout << "Destructor called" << std::endl;
   return;
@@ -25,4 +30,23 @@ ClapTrap& ClapTrap::operator=(ClapTrap const& rhs) {
     this->_attackDamage = rhs._attackDamage;
   }
   return *this;
+}
+
+void ClapTrap::attack(const std::string& target) {
+  std::cout << "ClapTrap " << this->_name << " attacks " << target
+            << ", causing " << this->_attackDamage << " points of damage!"
+            << std::endl;
+  return;
+}
+
+void ClapTrap::takeDamage(unsigned int amount) {
+  std::cout << this->_name << " takes " << amount << " points of damage!"
+            << std::endl;
+  return;
+}
+
+void ClapTrap::beRepaired(unsigned int amount) {
+  std::cout << this->_name << " has been repaired " << amount << " points!"
+            << std::endl;
+  return;
 }

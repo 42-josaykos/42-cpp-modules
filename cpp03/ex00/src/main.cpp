@@ -2,8 +2,13 @@
 #include <iostream>
 
 int main(void) {
-  ClapTrap claptrap("Jo");
+  ClapTrap A("Jo");
+  // ClapTrap B(A);
+  ClapTrap B = A;
 
-  std::cout << std::endl;
+  B.attack("Boss");
+  B.takeDamage(15);
+  B.beRepaired(10);
+
   return 0;
 }
