@@ -19,8 +19,9 @@ int main(void) {
   C.attack("Boss 2");
 
   D.attack("Boss 3");
-  E.takeDamage(5);
+  E.attack("Boss 4");
   F.beRepaired(3);
+  F.guardGate();
 
   return 0;
 }

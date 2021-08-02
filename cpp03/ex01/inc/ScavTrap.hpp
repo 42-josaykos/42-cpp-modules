@@ -12,6 +12,8 @@ public:
 
   ScavTrap& operator=(ScavTrap const& rhs);
 
+  void guardGate(void);
+
 private:
   ScavTrap(void);
 };
