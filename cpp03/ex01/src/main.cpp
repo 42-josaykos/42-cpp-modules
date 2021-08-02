@@ -21,6 +21,7 @@ int main(void) {
   D.attack("Boss 3");
   E.attack("Boss 4");
   F.beRepaired(3);
+  F.beRepaired(3);
   F.guardGate();
 
   return 0;

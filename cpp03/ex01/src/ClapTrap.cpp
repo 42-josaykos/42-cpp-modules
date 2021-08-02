@@ -49,6 +49,10 @@ void ClapTrap::takeDamage(unsigned int amount) {
 
 void ClapTrap::beRepaired(unsigned int amount) {
   std::cout << "Claptrap " << this->_name << " has been repaired " << amount
-            << " points!" << std::endl;
+            << " points!"
+            << " Status: "
+            << "[Hit Points: " << this->_hitpoints << "] "
+            << "[Energy Points: " << this->_energyPoints << "] "
+            << "[Attack Damage: " << this->_attackDamage << "]" << std::endl;
   return;
 }
