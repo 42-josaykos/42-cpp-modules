@@ -6,7 +6,6 @@
 class ClapTrap {
 
 public:
-  ClapTrap(void);
   ClapTrap(std::string name);
   ClapTrap(ClapTrap const& src);
   ~ClapTrap(void);
@@ -18,6 +17,7 @@ public:
   void beRepaired(unsigned int amount);
 
 private:
+  ClapTrap(void);
   std::string _name;
   int _hitpoints;
   int _energyPoints;
