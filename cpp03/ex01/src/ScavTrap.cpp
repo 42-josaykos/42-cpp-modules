@@ -1,7 +1,8 @@
 #include "ScavTrap.hpp"
 
+// Private. Never Called.
 ScavTrap::ScavTrap(void) : ClapTrap(NULL) {
-  std::cout << "<-- ScavTrap: dafault constructor called -->" << std::endl;
+  std::cout << "<-- ScavTrap: default constructor called -->" << std::endl;
   return;
 }
 
@@ -10,7 +11,8 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
   return;
 }
 
-ScavTrap::ScavTrap(ScavTrap const& src) {
+ScavTrap::ScavTrap(ScavTrap const& src) : ClapTrap(src) {
+  std::cout << "<-- ScavTrap: copy constructor called -->" << std::endl;
   *this = src;
   return;
 }

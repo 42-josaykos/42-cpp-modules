@@ -6,7 +6,6 @@
 class ScavTrap : public ClapTrap {
 
 public:
-  ScavTrap(void);
   ScavTrap(std::string name);
   ScavTrap(ScavTrap const& src);
   ~ScavTrap(void);
@@ -14,6 +13,7 @@ public:
   ScavTrap& operator=(ScavTrap const& rhs);
 
 private:
+  ScavTrap(void);
 };
 
 #endif

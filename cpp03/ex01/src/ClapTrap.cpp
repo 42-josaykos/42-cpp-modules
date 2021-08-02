@@ -1,5 +1,6 @@
 #include "ClapTrap.hpp"
 
+// Private. Never Called.
 ClapTrap::ClapTrap(void)
     : _name(NULL), _hitpoints(10), _energyPoints(10), _attackDamage(0) {
   std::cout << "<-- ClapTrap: default constructor called -->" << std::endl;
@@ -13,6 +14,7 @@ ClapTrap::ClapTrap(std::string name)
 }
 
 ClapTrap::ClapTrap(ClapTrap const& src) {
+  std::cout << "<-- ClapTrap: copy constructor called -->" << std::endl;
   *this = src;
   return;
 }
