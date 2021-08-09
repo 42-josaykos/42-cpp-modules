@@ -42,6 +42,8 @@ int main(void) {
 
   J.attack("Boss 6");
   J.beRepaired(15);
+  J.guardGate();
+  J.highFivesGuys();
   J.whoAmI();
 
   return 0;
