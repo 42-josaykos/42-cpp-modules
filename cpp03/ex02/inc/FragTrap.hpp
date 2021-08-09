@@ -7,6 +7,7 @@ class FragTrap : public ClapTrap {
 
 public:
   FragTrap(FragTrap const& src);
+  FragTrap(std::string name);
   ~FragTrap(void);
 
   FragTrap& operator=(FragTrap const& rhs);
