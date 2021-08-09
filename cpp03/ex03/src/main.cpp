@@ -46,5 +46,13 @@ int main(void) {
   J.highFivesGuys();
   J.whoAmI();
 
+  DiamondTrap K = J;
+
+  K.whoAmI();
+
+  DiamondTrap L(K);
+
+  L.whoAmI();
+
   return 0;
 }
