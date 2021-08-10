@@ -18,8 +18,6 @@ public:
 
 private:
   ClapTrap(void);
-
-protected:
   std::string _name;
   int _hitpoints;
   int _energyPoints;

@@ -1,14 +1,5 @@
 #include "ScavTrap.hpp"
 
-// Private. Never Called.
-ScavTrap::ScavTrap(void) : ClapTrap(NULL) {
-  std::cout << "<-- ScavTrap: default constructor called -->" << std::endl;
-  this->_hitpoints = 100;
-  this->_energyPoints = 50;
-  this->_attackDamage = 20;
-  return;
-}
-
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
   std::cout << "<-- ScavTrap: name constructor called -->" << std::endl;
   this->_hitpoints = 100;
@@ -42,6 +33,22 @@ void ScavTrap::attack(const std::string& target) {
   std::cout << "ScavTrap " << this->_name << " attacks " << target
             << ", causing " << this->_attackDamage << " points of damage!"
             << std::endl;
+  return;
+}
+
+void ScavTrap::takeDamage(unsigned int amount) {
+  std::cout << "ScavTrap " << this->_name << " takes " << amount
+            << " points of damage!" << std::endl;
+  return;
+}
+
+void ScavTrap::beRepaired(unsigned int amount) {
+  std::cout << "ScavTrap " << this->_name << " has been repaired " << amount
+            << " points!"
+            << " Status: "
+            << "[Hit Points: " << this->_hitpoints << "] "
+            << "[Energy Points: " << this->_energyPoints << "] "
+            << "[Attack Damage: " << this->_attackDamage << "]" << std::endl;
   return;
 }
 
