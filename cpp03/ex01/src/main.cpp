@@ -19,10 +19,16 @@ int main(void) {
   C.attack("Boss 2");
 
   D.attack("Boss 3");
+
   E.attack("Boss 4");
+
   F.beRepaired(3);
   F.beRepaired(3);
   F.guardGate();
+
+  ScavTrap* G = new ScavTrap("clap on the heap");
+  G->attack("an enemy");
+  delete G;
 
   return 0;
 }

@@ -8,7 +8,7 @@ class ClapTrap {
 public:
   ClapTrap(std::string name);
   ClapTrap(ClapTrap const& src);
-  ~ClapTrap(void);
+  virtual ~ClapTrap(void);
 
   ClapTrap& operator=(ClapTrap const& rhs);
 
@@ -21,9 +21,9 @@ private:
 
 protected:
   std::string _name;
-  int _hitpoints;
-  int _energyPoints;
-  int _attackDamage;
+  int         _hitpoints;
+  int         _energyPoints;
+  int         _attackDamage;
 };
 
 #endif

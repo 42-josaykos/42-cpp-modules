@@ -9,7 +9,7 @@ class DiamondTrap : public ScavTrap, public FragTrap {
 public:
   DiamondTrap(std::string name);
   DiamondTrap(DiamondTrap const& src);
-  ~DiamondTrap(void);
+  virtual ~DiamondTrap(void);
 
   DiamondTrap& operator=(DiamondTrap const& rhs);
 
