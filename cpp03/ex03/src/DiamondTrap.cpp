@@ -30,24 +30,8 @@ DiamondTrap& DiamondTrap::operator=(DiamondTrap const& rhs) {
   return *this;
 }
 
-// void DiamondTrap::attack(const std::string& target) {
-//   this->ScavTrap::attack(target);
-//   return;
-// }
-
-void DiamondTrap::takeDamage(unsigned int amount) {
-  std::cout << "FragTrap " << this->_name << " takes " << amount
-            << " points of damage!" << std::endl;
-  return;
-}
-
-void DiamondTrap::beRepaired(unsigned int amount) {
-  std::cout << "FragTrap " << this->_name << " has been repaired " << amount
-            << " points!"
-            << " Status: "
-            << "[Hit Points: " << this->_hitpoints << "] "
-            << "[Energy Points: " << this->_energyPoints << "] "
-            << "[Attack Damage: " << this->_attackDamage << "]" << std::endl;
+void DiamondTrap::attack(const std::string& target) {
+  this->ScavTrap::attack(target);
   return;
 }
 

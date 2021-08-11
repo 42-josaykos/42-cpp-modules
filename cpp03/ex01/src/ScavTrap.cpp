@@ -36,22 +36,6 @@ void ScavTrap::attack(const std::string& target) {
   return;
 }
 
-void ScavTrap::takeDamage(unsigned int amount) {
-  std::cout << "ScavTrap " << this->_name << " takes " << amount
-            << " points of damage!" << std::endl;
-  return;
-}
-
-void ScavTrap::beRepaired(unsigned int amount) {
-  std::cout << "ScavTrap " << this->_name << " has been repaired " << amount
-            << " points!"
-            << " Status: "
-            << "[Hit Points: " << this->_hitpoints << "] "
-            << "[Energy Points: " << this->_energyPoints << "] "
-            << "[Attack Damage: " << this->_attackDamage << "]" << std::endl;
-  return;
-}
-
 void ScavTrap::guardGate(void) {
   std::cout << "ScavTrap " << this->_name << " has entered in Gate keeper mode"
             << std::endl;
