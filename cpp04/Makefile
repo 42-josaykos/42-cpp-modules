@@ -7,6 +7,8 @@ INC = -Iinc
 SRCDIR = src/
 SRCS =	main.cpp \
 				Animal.cpp \
+				WrongAnimal.cpp \
+				WrongCat.cpp \
 				Dog.cpp \
 				Cat.cpp
 
