@@ -5,7 +5,7 @@ Brain::Brain(void) {
   return;
 }
 
-Brain::Brain(Brain const &src) {
+Brain::Brain(Brain const& src) {
   std::cout << "< Brain: copy constructor called >" << std::endl;
   *this = src;
   return;
@@ -16,7 +16,7 @@ Brain::~Brain(void) {
   return;
 }
 
-Brain &Brain::operator=(Brain const &rhs) {
+Brain& Brain::operator=(Brain const& rhs) {
   if (this != &rhs) {
     for (int i = 0; i < 100; i++) {
       this->ideas[i] = rhs.ideas[i];
@@ -24,5 +24,3 @@ Brain &Brain::operator=(Brain const &rhs) {
   }
   return *this;
 }
-
-std::string *Brain::getIdeas(void) { return this->ideas; }

@@ -9,8 +9,8 @@ Cat::Cat(void) : Animal() {
 
 Cat::Cat(Cat const& src) : Animal(src) {
   std::cout << "< Cat: copy constructor called >" << std::endl;
-  *this = src;
   this->type = "deep";
+  this->brain = new Brain(*(src.brain));
   return;
 }
 
@@ -23,7 +23,8 @@ Cat::~Cat(void) {
 Cat& Cat::operator=(Cat const& rhs) {
   if (this != &rhs) {
     this->type = rhs.type;
-    this->brain = rhs.brain;
+    delete this->brain;
+    this->brain = new Brain(*(rhs.brain));
   }
   return *this;
 }
