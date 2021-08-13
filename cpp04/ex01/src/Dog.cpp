@@ -1,8 +1,9 @@
 #include "Dog.hpp"
 
 Dog::Dog(void) : Animal() {
-  this->type = "Dog";
   std::cout << "< Dog: default constructor called >" << std::endl;
+  this->type = "Dog";
+  this->brain = new Brain();
   return;
 }
 
@@ -14,12 +15,14 @@ Dog::Dog(Dog const &src) : Animal(src) {
 
 Dog::~Dog(void) {
   std::cout << "< Dog: destructor called >" << std::endl;
+  delete this->brain;
   return;
 }
 
 Dog &Dog::operator=(Dog const &rhs) {
   if (this != &rhs) {
     this->type = rhs.type;
+    this->brain = rhs.brain;
   }
   return *this;
 }
