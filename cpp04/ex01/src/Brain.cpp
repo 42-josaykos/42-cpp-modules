@@ -24,3 +24,5 @@ Brain &Brain::operator=(Brain const &rhs) {
   }
   return *this;
 }
+
+std::string *Brain::getIdeas(void) { return this->ideas; }

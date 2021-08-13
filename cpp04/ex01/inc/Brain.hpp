@@ -12,6 +12,8 @@ public:
 
   Brain &operator=(Brain const &rhs);
 
+  std::string *getIdeas(void);
+
 private:
   std::string ideas[100];
 };

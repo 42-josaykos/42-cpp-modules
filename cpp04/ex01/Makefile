@@ -10,7 +10,8 @@ SRCS =	main.cpp \
 				WrongAnimal.cpp \
 				WrongCat.cpp \
 				Dog.cpp \
-				Cat.cpp
+				Cat.cpp \
+				Brain.cpp
 
 OBJDIR = obj/
 OBJ = $(addprefix $(OBJDIR),$(SRCS:.cpp=.o))

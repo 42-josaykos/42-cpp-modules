@@ -9,15 +9,15 @@ class Cat : virtual public Animal {
 
 public:
   Cat(void);
-  Cat(Cat const &src);
+  Cat(Cat const& src);
   virtual ~Cat(void);
 
-  Cat &operator=(Cat const &rhs);
+  Cat& operator=(Cat const& rhs);
 
   void makeSound(void) const;
 
 private:
-  Brain *brain;
+  Brain* brain;
 };
 
 #endif

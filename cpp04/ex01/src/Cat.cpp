@@ -7,9 +7,10 @@ Cat::Cat(void) : Animal() {
   return;
 }
 
-Cat::Cat(Cat const &src) : Animal(src) {
+Cat::Cat(Cat const& src) : Animal(src) {
   std::cout << "< Cat: copy constructor called >" << std::endl;
   *this = src;
+  this->type = "deep";
   return;
 }
 
@@ -19,7 +20,7 @@ Cat::~Cat(void) {
   return;
 }
 
-Cat &Cat::operator=(Cat const &rhs) {
+Cat& Cat::operator=(Cat const& rhs) {
   if (this != &rhs) {
     this->type = rhs.type;
     this->brain = rhs.brain;
