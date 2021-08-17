@@ -1,6 +1,17 @@
+#include "Ice.hpp"
 #include <iostream>
 
 int main(void) {
+
+  AMateria* tmp = new Ice();
+  std::cout << "tmp: " << tmp->getType() << std::endl;
+
+  AMateria* copy = tmp->clone();
+  std::cout << "copy: " << copy->getType() << std::endl;
+
+  delete copy;
+  delete tmp;
+
   // IMateriaSource* src = new MateriaSource();
   // src->learnMateria(new Ice());
   // src->learnMateria(new Cure());

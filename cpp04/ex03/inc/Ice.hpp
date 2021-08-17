@@ -3,4 +3,16 @@
 
 #include "AMateria.hpp"
 
+class Ice : public AMateria {
+
+public:
+  Ice(void);
+  Ice(Ice const& src);
+  virtual ~Ice(void);
+
+  Ice& operator=(Ice const& rhs);
+
+  AMateria* clone(void) const;
+};
+
 #endif
