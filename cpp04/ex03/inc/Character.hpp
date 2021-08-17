@@ -15,8 +15,8 @@ public:
 
   std::string const& getName() const;
   void               equip(AMateria* m);
-  // virtual void               unequip(int idx) = 0;
-  void use(int idx, ICharacter& target);
+  void               unequip(int idx);
+  void               use(int idx, ICharacter& target);
 
 private:
   Character(void);

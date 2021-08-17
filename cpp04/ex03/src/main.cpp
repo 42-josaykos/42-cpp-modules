@@ -36,10 +36,15 @@ int main(void) {
   clonebob->use(0, clonebill);
   clonebob->use(1, clonebill);
 
-  ICharacter* me = new Character(clonebob);
+  ICharacter* me = new Character(clonebill);
+  std::cout << me->getName() << std::endl;
   me->equip(ice);
+  me->equip(cure);
   me->use(0, *clonebob);
-  clonebob->use(0, clonebill);
+  me->unequip(1);
+  me->use(0, *clonebob);
+  me->equip(ice);
+  me->use(1, clonebill);
 
   delete me;
   delete copy;
