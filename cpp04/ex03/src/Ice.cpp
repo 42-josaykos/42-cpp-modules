@@ -1,18 +1,18 @@
 #include "Ice.hpp"
 
 Ice::Ice(void) : AMateria("ice") {
-  std::cout << "> Ice : default ctor" << std::endl;
+  // std::cout << "> Ice : default ctor" << std::endl;
   return;
 }
 
 Ice::Ice(Ice const& src) : AMateria(src) {
-  std::cout << "> Ice : copy ctor" << std::endl;
+  // std::cout << "> Ice : copy ctor" << std::endl;
   *this = src;
   return;
 }
 
 Ice::~Ice(void) {
-  std::cout << "> Ice : dtor" << std::endl;
+  // std::cout << "> Ice : dtor" << std::endl;
   return;
 }
 

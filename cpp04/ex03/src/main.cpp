@@ -4,20 +4,18 @@
 
 int main(void) {
 
-  AMateria* tmp = new Ice();
-  AMateria* tmp2 = new Cure();
-  std::cout << "tmp: " << tmp->getType() << std::endl;
-  std::cout << "tmp2: " << tmp2->getType() << std::endl;
+  AMateria* ice = new Ice();
+  AMateria* cure = new Cure();
+  std::cout << "ice: " << ice->getType() << std::endl;
+  std::cout << "cure: " << cure->getType() << std::endl;
 
-  AMateria* copy = tmp->clone();
+  AMateria* copy = ice->clone();
   delete copy;
-  copy = tmp2->clone();
+  copy = cure->clone();
   std::cout << "copy: " << copy->getType() << std::endl;
 
   ICharacter* bob = new Character("bob");
-  bob->equip(tmp);
-  // ICharacter* clonebob = new Character(bob);
-  ICharacter* clonebob = bob;
+  ICharacter* clonebob = new Character(bob);
   Character   bill("bill");
   Character   clonebill = bill;
 
@@ -26,28 +24,27 @@ int main(void) {
   std::cout << bill.getName() << std::endl;
   std::cout << clonebill.getName() << std::endl;
 
-  bob->equip(tmp);
-  bob->equip(tmp2);
+  bob->equip(ice);
+  bob->equip(cure);
   bob->use(0, bill);
   bob->use(1, bill);
   delete bob;
 
   std::cout << clonebob->getName() << std::endl;
-  clonebob->equip(tmp);
-  clonebob->equip(tmp2);
+  clonebob->equip(cure);
+  clonebob->equip(ice);
   clonebob->use(0, clonebill);
   clonebob->use(1, clonebill);
 
   ICharacter* me = new Character(clonebob);
-  me->equip(tmp2);
+  me->equip(ice);
   me->use(0, *clonebob);
   clonebob->use(0, clonebill);
 
   delete me;
   delete copy;
-  delete tmp2;
-  delete tmp;
-  // delete bob;
+  delete cure;
+  delete ice;
   delete clonebob;
 
   // IMateriaSource* src = new MateriaSource();
