@@ -35,4 +35,8 @@ void Character::equip(AMateria* m) {
   return;
 }
 
-void Character::use(int idx, ICharacter& target) { return; }
+void Character::use(int idx, ICharacter& target) {
+  (void)idx;
+  (void)target;
+  return;
+}
