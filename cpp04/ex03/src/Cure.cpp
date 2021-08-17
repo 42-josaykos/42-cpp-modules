@@ -1,6 +1,6 @@
 #include "Cure.hpp"
 
-Cure::Cure(void) : AMateria("ice") {
+Cure::Cure(void) : AMateria("cure") {
   std::cout << "> Cure : default ctor" << std::endl;
   return;
 }

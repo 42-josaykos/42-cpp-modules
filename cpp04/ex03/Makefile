@@ -8,6 +8,7 @@ SRCDIR = src/
 SRCS =	main.cpp \
 				AMateria.cpp \
 				Ice.cpp \
+				Cure.cpp \
 			
 
 OBJDIR = obj/
