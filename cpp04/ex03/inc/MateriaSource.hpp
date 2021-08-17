@@ -12,7 +12,8 @@ public:
 
   MateriaSource& operator=(MateriaSource const& rhs);
 
-private:
+  void      learnMateria(AMateria*);
+  AMateria* createMateria(std::string const& type);
 };
 
 #endif

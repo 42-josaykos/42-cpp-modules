@@ -12,6 +12,8 @@ public:
 
   Ice& operator=(Ice const& rhs);
 
+  AMateria* clone(void) const;
+
 private:
 };
 
