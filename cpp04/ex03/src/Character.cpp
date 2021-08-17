@@ -51,7 +51,9 @@ void Character::equip(AMateria* m) {
   while (this->_inventory[i]) {
     i++;
   }
-  this->_inventory[i] = m;
+  if (i < 4) {
+    this->_inventory[i] = m;
+  }
   return;
 }
 
