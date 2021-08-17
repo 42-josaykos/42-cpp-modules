@@ -6,6 +6,10 @@ INC = -Iinc
 
 SRCDIR = src/
 SRCS =	main.cpp \
+				AMateria.cpp \
+				Ice.cpp \
+				Cure.cpp
+			
 
 OBJDIR = obj/
 OBJ = $(addprefix $(OBJDIR),$(SRCS:.cpp=.o))
