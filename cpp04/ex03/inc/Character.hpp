@@ -14,13 +14,14 @@ public:
   Character& operator=(Character const& rhs);
 
   std::string const& getName() const;
-  // virtual void               equip(AMateria* m) = 0;
+  void               equip(AMateria* m);
   // virtual void               unequip(int idx) = 0;
-  // virtual void               use(int idx, ICharacter& target) = 0;
+  void use(int idx, ICharacter& target);
 
 private:
   Character(void);
   std::string _name;
+  AMateria**  _materias[4];
 };
 
 #endif

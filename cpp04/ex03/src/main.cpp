@@ -17,10 +17,6 @@ int main(void) {
 
   copy->use();
 
-  delete copy;
-  delete tmp2;
-  delete tmp;
-
   ICharacter* bob = new Character("bob");
   ICharacter* clonebob = new Character(bob);
   Character   bill("bill");
@@ -31,6 +27,11 @@ int main(void) {
   std::cout << bill.getName() << std::endl;
   std::cout << clonebill.getName() << std::endl;
 
+  bob->equip(tmp);
+
+  delete copy;
+  delete tmp2;
+  delete tmp;
   delete bob;
   delete clonebob;
 
