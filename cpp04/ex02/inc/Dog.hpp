@@ -14,7 +14,8 @@ public:
 
   Dog& operator=(Dog const& rhs);
 
-  void makeSound(void) const;
+  void   makeSound(void) const;
+  Brain* getBrain(void);
 
 private:
   Brain* brain;

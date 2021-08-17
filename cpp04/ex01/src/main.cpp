@@ -19,6 +19,16 @@ int main(void) {
   std::cout << "copycat is " << copycat.getType() << std::endl;
   std::cout << "clonecat is " << clonecat.getType() << std::endl;
 
+  Brain*       brain_ptr = copycat.getBrain();
+  std::string* ideas = brain_ptr->getIdeas();
+  ideas[0] = "copycat idea 0";
+  std::cout << ideas[0] << std::endl;
+
+  brain_ptr = clonecat.getBrain();
+  ideas = brain_ptr->getIdeas();
+  // ideas[0] = "clonecat idea 0";
+  std::cout << ideas[0] << std::endl;
+
   for (int i = 0; i < 3; i++) {
     array[i] = new Dog();
   }

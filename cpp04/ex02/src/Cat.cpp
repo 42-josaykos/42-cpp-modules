@@ -9,7 +9,7 @@ Cat::Cat(void) : Animal() {
 
 Cat::Cat(Cat const& src) : Animal(src) {
   std::cout << "< Cat: copy constructor called >" << std::endl;
-  this->type = "deep";
+  this->type = src.type;
   this->brain = new Brain(*(src.brain));
   return;
 }
@@ -33,3 +33,5 @@ void Cat::makeSound(void) const {
   std::cout << "Nyan Nyan... (I'm a japanese cat !)" << std::endl;
   return;
 }
+
+Brain* Cat::getBrain(void) { return this->brain; }

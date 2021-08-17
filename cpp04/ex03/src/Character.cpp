@@ -43,6 +43,8 @@ void Character::equip(AMateria* m) {
 }
 
 void Character::use(int idx, ICharacter& target) {
-  this->_inventory[idx]->use(target);
+  if (this->_inventory[idx]) {
+    this->_inventory[idx]->use(target);
+  }
   return;
 }

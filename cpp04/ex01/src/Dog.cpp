@@ -9,7 +9,7 @@ Dog::Dog(void) : Animal() {
 
 Dog::Dog(Dog const& src) : Animal(src) {
   std::cout << "< Dog: copy constructor called >" << std::endl;
-  this->type = "deep";
+  this->type = src.type;
   this->brain = new Brain(*(src.brain));
   return;
 }
@@ -33,3 +33,5 @@ void Dog::makeSound(void) const {
   std::cout << "Wan Wan... (I'm a japanese dog !)" << std::endl;
   return;
 }
+
+Brain* Dog::getBrain(void) { return this->brain; }
