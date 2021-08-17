@@ -25,8 +25,7 @@ AMateria& AMateria::operator=(AMateria const& rhs) {
 
 std::string const& AMateria::getType(void) const { return this->_type; }
 
-void AMateria::use(void) {
-  std::cout << "AMateria::use() !" << std::endl;
-  // std::cout << this->_type << "attacks " << target.getName() << std::endl;
+void AMateria::use(ICharacter& target) {
+  std::cout << "Use undefined materia on " << target.getName() << std::endl;
   return;
 }

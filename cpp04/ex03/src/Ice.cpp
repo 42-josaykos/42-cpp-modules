@@ -25,9 +25,8 @@ Ice& Ice::operator=(Ice const& rhs) {
 
 AMateria* Ice::clone(void) const { return new Ice(); }
 
-void Ice::use(void) {
-  std::cout << "* shoots an ice bolt at "
-            << " *" << std::endl;
-  // std::cout << this->_type << "attacks " << target.getName() << std::endl;
+void Ice::use(ICharacter& target) {
+  std::cout << "* shoots an ice bolt at " << target.getName() << " *"
+            << std::endl;
   return;
 }

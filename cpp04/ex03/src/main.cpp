@@ -10,12 +10,9 @@ int main(void) {
   std::cout << "tmp2: " << tmp2->getType() << std::endl;
 
   AMateria* copy = tmp->clone();
-  copy->use();
   delete copy;
   copy = tmp2->clone();
   std::cout << "copy: " << copy->getType() << std::endl;
-
-  copy->use();
 
   ICharacter* bob = new Character("bob");
   ICharacter* clonebob = new Character(bob);
@@ -28,6 +25,9 @@ int main(void) {
   std::cout << clonebill.getName() << std::endl;
 
   bob->equip(tmp);
+  bob->equip(tmp2);
+  bob->use(0, bill);
+  bob->use(1, bill);
 
   delete copy;
   delete tmp2;

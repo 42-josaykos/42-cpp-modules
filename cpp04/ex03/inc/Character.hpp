@@ -21,7 +21,7 @@ public:
 private:
   Character(void);
   std::string _name;
-  AMateria**  _materias[4];
+  AMateria*   _inventory[4];
 };
 
 #endif
