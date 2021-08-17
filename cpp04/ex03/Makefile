@@ -9,6 +9,7 @@ SRCS =	main.cpp \
 				AMateria.cpp \
 				Ice.cpp \
 				Cure.cpp \
+				Character.cpp \
 			
 
 OBJDIR = obj/

@@ -1,3 +1,4 @@
+#include "Character.hpp"
 #include "Cure.hpp"
 #include "Ice.hpp"
 #include <iostream>
@@ -20,6 +21,12 @@ int main(void) {
   delete copy;
   delete tmp2;
   delete tmp;
+
+  ICharacter* bob = new Character("bob");
+
+  std::cout << bob->getName() << std::endl;
+
+  delete bob;
 
   // IMateriaSource* src = new MateriaSource();
   // src->learnMateria(new Ice());
