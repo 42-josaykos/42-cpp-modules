@@ -15,7 +15,9 @@ int main(void) {
   std::cout << "copy: " << copy->getType() << std::endl;
 
   ICharacter* bob = new Character("bob");
-  ICharacter* clonebob = new Character(bob);
+  bob->equip(tmp);
+  // ICharacter* clonebob = new Character(bob);
+  ICharacter* clonebob = bob;
   Character   bill("bill");
   Character   clonebill = bill;
 
@@ -28,11 +30,24 @@ int main(void) {
   bob->equip(tmp2);
   bob->use(0, bill);
   bob->use(1, bill);
+  delete bob;
 
+  std::cout << clonebob->getName() << std::endl;
+  clonebob->equip(tmp);
+  clonebob->equip(tmp2);
+  clonebob->use(0, clonebill);
+  clonebob->use(1, clonebill);
+
+  ICharacter* me = new Character(clonebob);
+  me->equip(tmp2);
+  me->use(0, *clonebob);
+  clonebob->use(0, clonebill);
+
+  delete me;
   delete copy;
   delete tmp2;
   delete tmp;
-  delete bob;
+  // delete bob;
   delete clonebob;
 
   // IMateriaSource* src = new MateriaSource();
