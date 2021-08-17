@@ -13,6 +13,7 @@ public:
   Ice& operator=(Ice const& rhs);
 
   AMateria* clone(void) const;
+  virtual void       use(void);
 };
 
 #endif

@@ -12,7 +12,8 @@ public:
 
   Cure& operator=(Cure const& rhs);
 
-  AMateria* clone(void) const;
+  AMateria*    clone(void) const;
+  virtual void use(void);
 };
 
 #endif

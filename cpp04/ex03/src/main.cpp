@@ -10,9 +10,12 @@ int main(void) {
   std::cout << "tmp2: " << tmp2->getType() << std::endl;
 
   AMateria* copy = tmp->clone();
+  copy->use();
   delete copy;
   copy = tmp2->clone();
   std::cout << "copy: " << copy->getType() << std::endl;
+
+  copy->use();
 
   delete copy;
   delete tmp2;
