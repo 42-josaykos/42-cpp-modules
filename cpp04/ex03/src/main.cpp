@@ -1,7 +1,6 @@
 #include "Character.hpp"
 #include "Cure.hpp"
 #include "Ice.hpp"
-#include <iostream>
 
 int main(void) {
 
@@ -23,10 +22,17 @@ int main(void) {
   delete tmp;
 
   ICharacter* bob = new Character("bob");
+  ICharacter* clonebob = new Character(bob);
+  Character   bill("bill");
+  Character   clonebill = bill;
 
   std::cout << bob->getName() << std::endl;
+  std::cout << clonebob->getName() << std::endl;
+  std::cout << bill.getName() << std::endl;
+  std::cout << clonebill.getName() << std::endl;
 
   delete bob;
+  delete clonebob;
 
   // IMateriaSource* src = new MateriaSource();
   // src->learnMateria(new Ice());

@@ -8,6 +8,7 @@ class Character : public ICharacter {
 public:
   Character(std::string const& name);
   Character(Character const& src);
+  Character(ICharacter const* ptr);
   virtual ~Character(void);
 
   Character& operator=(Character const& rhs);

@@ -5,10 +5,14 @@ Character::Character(std::string const& name) : _name(name) {
   return;
 }
 
-Character::Character(Character const& src) {
-  std::cout << "Character : copy ctor" << std::endl;
+Character::Character(Character const& src) : ICharacter() {
+  std::cout << "Character : copy ctor Character src" << std::endl;
   *this = src;
   return;
+}
+
+Character::Character(ICharacter const* ptr) : _name(ptr->getName()) {
+  std::cout << "Character : copy ctor ICharacter ptr" << std::endl;
 }
 
 Character::~Character(void) {
@@ -18,7 +22,7 @@ Character::~Character(void) {
 
 Character& Character::operator=(Character const& rhs) {
   if (this != &rhs) {
-    ;
+    this->_name = rhs._name;
   }
   return *this;
 }
