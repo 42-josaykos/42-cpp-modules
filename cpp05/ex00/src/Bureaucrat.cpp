@@ -1,5 +1,4 @@
 #include "Bureaucrat.hpp"
-#include "utils.hpp"
 
 /*********** ctors & dtors ***************************************************/
 
@@ -8,7 +7,7 @@ Bureaucrat::Bureaucrat(std::string const& name, int grade)
   std::cout << YELLOW << "< Bureaucrat(string&, int) ctor >" << RESET
             << std::endl;
   if (grade > 150) {
-    Bureaucrat::GradeTooHighException();
+    throw GradeTooHighException();
   }
   return;
 }

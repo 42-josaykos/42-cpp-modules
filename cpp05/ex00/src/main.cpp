@@ -11,7 +11,7 @@ int main(void) {
   try {
     Bureaucrat unknown("unknown", 151);
   } catch (Bureaucrat::GradeTooHighException& e) {
-    std::cout << "there is a problem ?" << std::endl;
+    std::cout << RED << e.what() << RESET << std::endl;
   }
 
   return 0;

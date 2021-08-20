@@ -1,6 +1,7 @@
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
+#include "utils.hpp"
 #include <exception>
 #include <iostream>
 
