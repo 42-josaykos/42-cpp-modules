@@ -6,8 +6,10 @@ Bureaucrat::Bureaucrat(std::string const& name, int grade)
     : _name(name), _grade(grade) {
   std::cout << YELLOW << "< Bureaucrat(string&, int) ctor >" << RESET
             << std::endl;
-  if (grade > 150) {
+  if (grade < 1) {
     throw GradeTooHighException();
+  } else if (grade > 150) {
+    throw GradeTooLowException();
   }
   return;
 }
@@ -27,7 +29,8 @@ Bureaucrat::~Bureaucrat(void) {
 
 Bureaucrat& Bureaucrat::operator=(Bureaucrat const& rhs) {
   if (this != &rhs) {
-    ;
+    this->_name = rhs._name;
+    this->_grade = rhs._grade;
   }
   return *this;
 }
