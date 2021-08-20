@@ -7,6 +7,9 @@ Bureaucrat::Bureaucrat(std::string const& name, int grade)
     : _name(name), _grade(grade) {
   std::cout << YELLOW << "< Bureaucrat(string&, int) ctor >" << RESET
             << std::endl;
+  if (grade > 150) {
+    Bureaucrat::GradeTooHighException();
+  }
   return;
 }
 

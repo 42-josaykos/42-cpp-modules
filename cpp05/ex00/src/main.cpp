@@ -8,5 +8,11 @@ int main(void) {
 
   std::cout << "bill = " << bill.getGrade() << std::endl;
 
+  try {
+    Bureaucrat unknown("unknown", 151);
+  } catch (Bureaucrat::GradeTooHighException& e) {
+    std::cout << "there is a problem ?" << std::endl;
+  }
+
   return 0;
 }

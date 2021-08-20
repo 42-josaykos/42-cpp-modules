@@ -1,6 +1,7 @@
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
+#include <exception>
 #include <iostream>
 
 class Bureaucrat {
@@ -17,6 +18,21 @@ public:
   // functions
   std::string getName(void) const;
   int         getGrade(void) const;
+
+  // exceptions
+  class GradeTooHighException : public std::exception {
+  public:
+    virtual const char* what() const throw() {
+      return ("GradeTooHighException");
+    }
+  };
+
+  class GradeTooLowException : public std::exception {
+  public:
+    virtual const char* what() const throw() {
+      return ("GradeTooLowException");
+    }
+  };
 
 private:
   Bureaucrat(void);
