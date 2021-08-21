@@ -9,23 +9,31 @@ int main(void) {
     std::cout << "bill.getGrade(): " << bill.getGrade() << std::endl;
     std::cout << "bill: " << bill.getGrade() << std::endl;
 
-  } catch (Bureaucrat::GradeTooLowException& e) {
-    std::cout << RED << e.what() << RESET << std::endl;
-  } catch (Bureaucrat::GradeTooHighException& e) {
+  } catch (std::exception& e) {
     std::cout << RED << e.what() << RESET << std::endl;
   }
 
+  // GradeTooLowException
   try {
-    Bureaucrat unknown("unknown", 151);
+    Bureaucrat bob("Bob", 151);
 
-  } catch (Bureaucrat::GradeTooLowException& e) {
+    std::cout << "bob.getName(): " << bob.getName() << std::endl;
+    std::cout << "bob.getGrade(): " << bob.getGrade() << std::endl;
+    std::cout << "bob: " << bob.getGrade() << std::endl;
+
+  } catch (std::exception& e) {
     std::cout << RED << e.what() << RESET << std::endl;
   }
 
+  // GradeTooHighException
   try {
-    Bureaucrat unknown("John", 0);
+    Bureaucrat john("John", 0);
 
-  } catch (Bureaucrat::GradeTooHighException& e) {
+    std::cout << "john.getName(): " << john.getName() << std::endl;
+    std::cout << "john.getGrade(): " << john.getGrade() << std::endl;
+    std::cout << "john: " << john.getGrade() << std::endl;
+
+  } catch (std::exception& e) {
     std::cout << RED << e.what() << RESET << std::endl;
   }
 
