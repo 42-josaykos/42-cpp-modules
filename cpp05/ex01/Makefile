@@ -7,6 +7,7 @@ INC = -Iinc
 SRCDIR = src/
 SRCS =	main.cpp \
 				Bureaucrat.cpp \
+				Form.cpp \
 			
 
 OBJDIR = obj/
