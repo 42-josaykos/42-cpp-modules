@@ -36,7 +36,7 @@ std::ostream& operator<<(std::ostream& out, Form const& inst) {
              << "is signed: " << inst.isSigned();
 }
 
-/*********** functions *******************************************************/
+/*********** member functions *************************************************/
 
 std::string Form::getName(void) const { return this->_name; }
 
@@ -53,4 +53,19 @@ void Form::beSigned(Bureaucrat const& employee) {
     throw GradeTooLowException();
   }
   return;
+}
+
+/*********** non member functions *********************************************/
+
+void Bureaucrat::signForm(Form& form) {
+  try {
+    form.beSigned(*this);
+    std::cout << CYAN << *this << " signs " << form.getName() << " form "
+              << RESET << std::endl;
+  } catch (std::exception& e) {
+    std::cout << RED << *this << " cannot sign " << form.getName()
+              << " form (sign grade: " << form.getSignGrade() << ")"
+              << " form because bureaucrat grade is too low" << RESET
+              << std::endl;
+  }
 }

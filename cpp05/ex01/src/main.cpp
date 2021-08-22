@@ -46,7 +46,7 @@ int main(void) {
     // sign form by employee
     std::cout << GREEN << "Make " << employee << " sign " << form.getName()
               << " form..." << RESET << std::endl;
-    form.beSigned(employee);
+    employee.signForm(form);
     std::cout << BOLDWHITE << input[2] << ".isSigned(): " << form.isSigned()
               << std::endl;
     std::cout << input[2] << ": " << form << RESET << std::endl;
