@@ -22,6 +22,7 @@ public:
   std::string getName(void) const;
   int         getGrade(void) const;
   void        signForm(Form& form);
+  void        executeForm(Form& form);
 
   // exceptions
   class GradeTooHighException : public std::exception {

@@ -58,8 +58,8 @@ void Form::beSigned(Bureaucrat const& employee) {
 }
 
 void Form::execute(Bureaucrat const& executor) {
-  std::cout << CYAN << executor << ", will executes " << this->getName()
-            << " form..." << RESET << std::endl;
+  std::cout << CYAN << executor << ", will executes " << *this << RESET
+            << std::endl;
   if (executor.getGrade() > this->getExecGrade()) {
     throw GradeTooLowException();
   } else if (this->isSigned() == false) {
@@ -77,5 +77,14 @@ void Bureaucrat::signForm(Form& form) {
               << " form (sign grade: " << form.getSignGrade() << ")"
               << " form because bureaucrat grade is too low" << RESET
               << std::endl;
+  }
+}
+
+void Bureaucrat::executeForm(Form& form) {
+  try {
+    form.execute(*this);
+  } catch (std::exception& e) {
+    std::cout << RED + e.what() + RESET << std::endl;
+    std::cout << MAGENTA << "Failed to execute form" << RESET << std::endl;
   }
 }

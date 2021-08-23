@@ -12,11 +12,10 @@ public:
 
   ShrubberyCreationForm& operator=(ShrubberyCreationForm const& rhs);
 
-  void execute(Bureaucrat const& executor);
-
 private:
   ShrubberyCreationForm(void);
   using Form::beSigned;
+  void              execute(Bureaucrat const& executor);
   std::string const _target;
 };
 

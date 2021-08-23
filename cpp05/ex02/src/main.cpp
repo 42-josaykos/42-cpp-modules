@@ -3,36 +3,35 @@
 #include "ShrubberyCreationForm.hpp"
 #include <sstream>
 
+// convert string to int
 int ft_strtoi(std::string str) {
-  int                nb;
-  std::istringstream input(str);
+  int nb;
 
+  std::istringstream input(str);
   return !(input >> nb) ? 0 : nb;
 }
 
 int main(void) {
 
+  // get user input to create bureaucrat
   std::string input[2];
   std::cout << "Enter bureaucrat name: ";
   std::getline(std::cin, input[0]);
   std::cout << "Enter bureaucrat grade: ";
   std::getline(std::cin, input[1]);
 
+  // CEO is the signer
   Bureaucrat CEO("the CEO", 1);
 
   try {
-    // bureaucrat
+    // create bureaucrat
     Bureaucrat employee(input[0], ft_strtoi(input[1]));
     std::cout << input[0] << ": " << employee << std::endl;
 
-    // form
+    // shrubbery form, CEO signs and employee executes
     ShrubberyCreationForm form("home");
-    std::cout << "Form name: " << form.getName() << ", is it signed ? "
-              << form.isSigned() << std::endl;
     CEO.signForm(form);
-    std::cout << "Form name: " << form.getName() << ", is it signed ? "
-              << form.isSigned() << std::endl;
-    form.execute(employee);
+    employee.executeForm(form);
 
   } catch (std::exception& e) {
     std::cout << RED << e.what() << RESET << std::endl;
