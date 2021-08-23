@@ -31,8 +31,8 @@ Form::~Form(void) {
 Form& Form::operator=(Form const&) { return *this; }
 
 std::ostream& operator<<(std::ostream& out, Form const& inst) {
-  return out << inst.getName() << ", form sign grade " << inst.getSignGrade()
-             << ", form exec grade " << inst.getExecGrade() << ", "
+  return out << inst.getName() << ", sign grade " << inst.getSignGrade()
+             << ", exec grade " << inst.getExecGrade() << ", "
              << "is signed: " << inst.isSigned();
 }
 
@@ -57,7 +57,7 @@ void Form::beSigned(Bureaucrat const& employee) {
   return;
 }
 
-void Form::execute(Bureaucrat const& executor) {
+void Form::execute(Bureaucrat const& executor) const {
   std::cout << CYAN << executor << ", will executes " << *this << RESET
             << std::endl;
   if (executor.getGrade() > this->getExecGrade()) {

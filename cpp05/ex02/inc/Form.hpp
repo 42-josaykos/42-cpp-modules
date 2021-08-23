@@ -44,7 +44,7 @@ public:
   bool         isSigned(void) const;
   int          getSignGrade(void) const;
   int          getExecGrade(void) const;
-  virtual void execute(Bureaucrat const& executor) = 0;
+  virtual void execute(Bureaucrat const& executor) const = 0;
   void         beSigned(Bureaucrat const& employee);
 
 private:

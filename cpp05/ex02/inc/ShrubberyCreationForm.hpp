@@ -15,7 +15,7 @@ public:
 private:
   ShrubberyCreationForm(void);
   using Form::beSigned;
-  void              execute(Bureaucrat const& executor);
+  void              execute(Bureaucrat const& executor) const;
   std::string const _target;
 };
 

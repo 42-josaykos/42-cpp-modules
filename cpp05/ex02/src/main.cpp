@@ -1,5 +1,6 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
+#include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include <sstream>
 
@@ -29,9 +30,14 @@ int main(void) {
     std::cout << input[0] << ": " << employee << std::endl;
 
     // shrubbery form, CEO signs and employee executes
-    ShrubberyCreationForm form("home");
-    CEO.signForm(form);
-    employee.executeForm(form);
+    ShrubberyCreationForm form1("home");
+    CEO.signForm(form1);
+    employee.executeForm(form1);
+
+    // Robotomy request form
+    RobotomyRequestForm form2("lazy employee");
+    CEO.signForm(form2);
+    employee.executeForm(form2);
 
   } catch (std::exception& e) {
     std::cout << RED << e.what() << RESET << std::endl;

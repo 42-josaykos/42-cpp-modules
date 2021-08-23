@@ -2,7 +2,7 @@
 #include <fstream>
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string const& target)
-    : Form("create_shrubbery", 145, 127), _target(target) {
+    : Form("create_shrubbery", 145, 137), _target(target) {
   std::cout << "< ShrubberyCreationForm(string&) ctor >" << std::endl;
   return;
 }
@@ -24,7 +24,7 @@ ShrubberyCreationForm::operator=(ShrubberyCreationForm const&) {
   return *this;
 }
 
-void ShrubberyCreationForm::execute(Bureaucrat const& executor) {
+void ShrubberyCreationForm::execute(Bureaucrat const& executor) const {
   Form::execute(executor);
   std::string   filename = this->_target + "_shrubbery.txt";
   std::ofstream file(filename.c_str());
