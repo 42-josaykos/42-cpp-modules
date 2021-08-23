@@ -29,7 +29,7 @@ int main(void) {
     ShrubberyCreationForm form("home");
     std::cout << "Form name: " << form.getName() << ", is it signed ? "
               << form.isSigned() << std::endl;
-    form.beSigned(CEO);
+    CEO.signForm(form);
     std::cout << "Form name: " << form.getName() << ", is it signed ? "
               << form.isSigned() << std::endl;
     form.execute(employee);

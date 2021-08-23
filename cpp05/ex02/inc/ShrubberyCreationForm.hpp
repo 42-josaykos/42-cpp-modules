@@ -16,6 +16,7 @@ public:
 
 private:
   ShrubberyCreationForm(void);
+  using Form::beSigned;
   std::string const _target;
 };
 
