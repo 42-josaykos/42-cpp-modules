@@ -1,5 +1,6 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
+#include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include <sstream>
@@ -18,7 +19,7 @@ int main(void) {
   std::string input[2];
   std::cout << "Enter grade for signer (Big Boss): ";
   std::getline(std::cin, input[0]);
-  std::cout << "Enter grade for executer (Simple Salaryman) : ";
+  std::cout << "Enter grade for executer (Little Chief) : ";
   std::getline(std::cin, input[1]);
 
   try {
@@ -26,13 +27,13 @@ int main(void) {
     Bureaucrat boss("Big Boss", ft_strtoi(input[0]));
 
     // create bureaucrat
-    Bureaucrat employee("Little Bureaucrat", ft_strtoi(input[1]));
+    Bureaucrat employee("Little Chief", ft_strtoi(input[1]));
 
     std::cout << YELLOW << "Signer: " << boss << std::endl;
     std::cout << "Executer: " << employee << RESET << std::endl;
 
     // shrubbery form, CEO signs and employee executes
-    ShrubberyCreationForm form1("home");
+    ShrubberyCreationForm form1("Home");
     boss.signForm(form1);
     employee.executeForm(form1);
 
@@ -40,6 +41,11 @@ int main(void) {
     RobotomyRequestForm form2("Lazy Salaryman");
     boss.signForm(form2);
     employee.executeForm(form2);
+
+    // Presidential pardon form
+    PresidentialPardonForm form3("Young Salaryman");
+    boss.signForm(form3);
+    employee.executeForm(form3);
 
   } catch (std::exception& e) {
     std::cout << RED << e.what() << RESET << std::endl;
