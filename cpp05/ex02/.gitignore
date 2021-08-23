@@ -1,0 +1,7 @@
+bureaucrat
+a.out
+obj/
+tags
+.vscode-ctags
+vgcore*
+.txt
