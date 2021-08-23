@@ -16,27 +16,29 @@ int main(void) {
 
   // get user input to create bureaucrat
   std::string input[2];
-  std::cout << "Enter bureaucrat name: ";
+  std::cout << "Enter grade for signer (Big Boss): ";
   std::getline(std::cin, input[0]);
-  std::cout << "Enter bureaucrat grade: ";
+  std::cout << "Enter grade for executer (Simple Salaryman) : ";
   std::getline(std::cin, input[1]);
 
-  // CEO is the signer
-  Bureaucrat CEO("the CEO", 1);
-
   try {
+    // CEO is the signer
+    Bureaucrat boss("Big Boss", ft_strtoi(input[0]));
+
     // create bureaucrat
-    Bureaucrat employee(input[0], ft_strtoi(input[1]));
-    std::cout << input[0] << ": " << employee << std::endl;
+    Bureaucrat employee("Little Bureaucrat", ft_strtoi(input[1]));
+
+    std::cout << YELLOW << "Signer: " << boss << std::endl;
+    std::cout << "Executer: " << employee << RESET << std::endl;
 
     // shrubbery form, CEO signs and employee executes
     ShrubberyCreationForm form1("home");
-    CEO.signForm(form1);
+    boss.signForm(form1);
     employee.executeForm(form1);
 
     // Robotomy request form
-    RobotomyRequestForm form2("lazy employee");
-    CEO.signForm(form2);
+    RobotomyRequestForm form2("Lazy Salaryman");
+    boss.signForm(form2);
     employee.executeForm(form2);
 
   } catch (std::exception& e) {

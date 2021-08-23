@@ -2,7 +2,7 @@
 #include <cstdlib>
 
 RobotomyRequestForm::RobotomyRequestForm(std::string const& target)
-    : Form("Robotomy Request", 72, 45), _target(target) {
+    : Form("robotomy_request", 72, 45), _target(target) {
   std::cout << "< RobotomyRequestForm(string&) ctor >" << std::endl;
   return;
 }

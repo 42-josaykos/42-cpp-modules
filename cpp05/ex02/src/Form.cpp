@@ -4,7 +4,7 @@
 
 Form::Form(std::string const& name, int sign, int exec)
     : _name(name), _IsSigned(false), _signGrade(sign), _execGrade(exec) {
-  std::cout << YELLOW << "< Form(name&, int, int) ctor >" << RESET << std::endl;
+  std::cout << "< Form(name&, int, int) ctor >" << std::endl;
 
   if (sign < 1 || exec < 1) {
     throw GradeTooHighException();
@@ -17,12 +17,12 @@ Form::Form(std::string const& name, int sign, int exec)
 Form::Form(Form const& src)
     : _name(src._name), _IsSigned(src._IsSigned), _signGrade(src._signGrade),
       _execGrade(src._execGrade) {
-  std::cout << YELLOW << "< Form copy ctor >" << RESET << std::endl;
+  std::cout << "< Form copy ctor >" << std::endl;
   return;
 }
 
 Form::~Form(void) {
-  std::cout << YELLOW << "< Form dtor >" << RESET << std::endl;
+  std::cout << "< Form dtor >" << std::endl;
   return;
 }
 
@@ -73,7 +73,8 @@ void Bureaucrat::signForm(Form& form) {
   try {
     form.beSigned(*this);
   } catch (std::exception& e) {
-    std::cout << RED << *this << " cannot sign " << form.getName()
+    std::cout << RED << e.what() << RESET << std::endl;
+    std::cout << MAGENTA << *this << " cannot sign " << form.getName()
               << " form (sign grade: " << form.getSignGrade() << ")"
               << " form because bureaucrat grade is too low" << RESET
               << std::endl;
@@ -85,6 +86,9 @@ void Bureaucrat::executeForm(Form& form) {
     form.execute(*this);
   } catch (std::exception& e) {
     std::cout << RED + e.what() + RESET << std::endl;
-    std::cout << MAGENTA << "Failed to execute form" << RESET << std::endl;
+    std::cout
+        << MAGENTA
+        << "Failed to execute form: no signature or bureaucrat grade is too low"
+        << RESET << std::endl;
   }
 }

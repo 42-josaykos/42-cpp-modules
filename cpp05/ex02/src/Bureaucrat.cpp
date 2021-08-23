@@ -4,8 +4,7 @@
 
 Bureaucrat::Bureaucrat(std::string const& name, int grade)
     : _name(name), _grade(grade) {
-  std::cout << YELLOW << "< Bureaucrat(string&, int) ctor >" << RESET
-            << std::endl;
+  std::cout << "< Bureaucrat(string&, int) ctor >" << std::endl;
   if (grade < 1) {
     throw GradeTooHighException();
   } else if (grade > 150) {
@@ -16,12 +15,12 @@ Bureaucrat::Bureaucrat(std::string const& name, int grade)
 
 Bureaucrat::Bureaucrat(Bureaucrat const& src)
     : _name(src.getName()), _grade(src.getGrade()) {
-  std::cout << YELLOW << "< Bureaucrat copy ctor >" << RESET << std::endl;
+  std::cout << "< Bureaucrat copy ctor >" << std::endl;
   return;
 }
 
 Bureaucrat::~Bureaucrat(void) {
-  std::cout << YELLOW << "< Bureaucrat dtor >" << RESET << std::endl;
+  std::cout << "< Bureaucrat dtor >" << std::endl;
   return;
 }
 
