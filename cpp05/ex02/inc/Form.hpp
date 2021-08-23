@@ -32,13 +32,20 @@ public:
     }
   };
 
+  class NoSignatureException : public std::exception {
+  public:
+    virtual const char* what() const throw() {
+      return ("Form::NoSignatureException");
+    }
+  };
+
   // functions
   std::string  getName(void) const;
   bool         isSigned(void) const;
   int          getSignGrade(void) const;
   int          getExecGrade(void) const;
-  void         beSigned(Bureaucrat const& employee);
   virtual void execute(Bureaucrat const& executor) = 0;
+  void         beSigned(Bureaucrat const& employee);
 
 private:
   Form(void);

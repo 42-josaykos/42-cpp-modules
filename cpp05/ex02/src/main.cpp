@@ -13,23 +13,25 @@ int ft_strtoi(std::string str) {
 int main(void) {
 
   std::string input[2];
-
   std::cout << "Enter bureaucrat name: ";
   std::getline(std::cin, input[0]);
   std::cout << "Enter bureaucrat grade: ";
   std::getline(std::cin, input[1]);
 
+  Bureaucrat CEO("the CEO", 1);
+
   try {
     // bureaucrat
     Bureaucrat employee(input[0], ft_strtoi(input[1]));
-    std::cout << input[0] << ".getName(): " << employee.getName() << std::endl;
-    std::cout << input[0] << ".getGrade(): " << employee.getGrade()
-              << std::endl;
     std::cout << input[0] << ": " << employee << std::endl;
 
     // form
     ShrubberyCreationForm form("home");
-
+    std::cout << "Form name: " << form.getName() << ", is it signed ? "
+              << form.isSigned() << std::endl;
+    form.beSigned(CEO);
+    std::cout << "Form name: " << form.getName() << ", is it signed ? "
+              << form.isSigned() << std::endl;
     form.execute(employee);
 
   } catch (std::exception& e) {

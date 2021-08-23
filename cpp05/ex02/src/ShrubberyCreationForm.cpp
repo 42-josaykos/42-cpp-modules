@@ -2,7 +2,7 @@
 #include <fstream>
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string const& target)
-    : Form("Schrubbery Creation", 145, 127), _target(target) {
+    : Form("create_shrubbery", 145, 127), _target(target) {
   return;
 }
 
@@ -20,8 +20,8 @@ ShrubberyCreationForm::operator=(ShrubberyCreationForm const&) {
 }
 
 void ShrubberyCreationForm::execute(Bureaucrat const& executor) {
-  if (executor.getGrade() <= this->getExecGrade()) {
-
+  try {
+    Form::execute(executor);
     std::string   filename = this->_target + "_shrubbery.txt";
     std::ofstream file(filename.c_str());
     file << "       ,.," << std::endl
@@ -39,6 +39,11 @@ void ShrubberyCreationForm::execute(Bureaucrat const& executor) {
          << "   (_)                    (_)" << std::endl
          << "   " << this->_target << std::endl;
     file.close();
+    std::cout << GREEN << executor.getName()
+              << " planted a nice shrubbery tree at " + this->_target + " !"
+              << RESET << std::endl;
+  } catch (std::exception& e) {
+    std::cout << RED + e.what() + RESET << std::endl;
   }
   return;
 }
