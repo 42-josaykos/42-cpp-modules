@@ -2,7 +2,7 @@
 #include <fstream>
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string const& target)
-    : Form("create_shrubbery", 145, 137), _target(target) {
+    : Form("shrubbery creation", 145, 137), _target(target) {
   std::cout << "< ShrubberyCreationForm(string&) ctor >" << std::endl;
   return;
 }

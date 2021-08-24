@@ -1,5 +1,6 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
+#include "Intern.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
@@ -17,36 +18,25 @@ int main(void) {
 
   // get user input to create bureaucrat
   std::string input[2];
-  std::cout << "Enter grade for signer (Big Boss): ";
+  std::cout << "Valid form name: 'shrubbery creation', 'robotomy request', "
+               "'presidential pardon'"
+            << std::endl;
+  std::cout << "Enter a valid form name: ";
   std::getline(std::cin, input[0]);
-  std::cout << "Enter grade for executer (Little Chief) : ";
+  std::cout << "Enter a target: ";
   std::getline(std::cin, input[1]);
 
+  Bureaucrat boss("boss", 1);
+
   try {
-    // CEO is the signer
-    Bureaucrat boss("Big Boss", ft_strtoi(input[0]));
-
-    // create bureaucrat
-    Bureaucrat employee("Little Chief", ft_strtoi(input[1]));
-
-    std::cout << YELLOW << "Signer: " << boss << std::endl;
-    std::cout << "Executer: " << employee << RESET << std::endl;
-
-    // shrubbery form, CEO signs and employee executes
-    ShrubberyCreationForm form1("Home");
-    boss.signForm(form1);
-    employee.executeForm(form1);
-
-    // Robotomy request form
-    RobotomyRequestForm form2("Lazy Salaryman");
-    boss.signForm(form2);
-    employee.executeForm(form2);
-
-    // Presidential pardon form
-    PresidentialPardonForm form3("Young Salaryman");
-    boss.signForm(form3);
-    employee.executeForm(form3);
-
+    Intern someRandomIntern;
+    Form*  rrf;
+    rrf = someRandomIntern.makeForm(input[0], input[1]);
+    if (rrf) {
+      boss.signForm(*rrf);
+      boss.executeForm(*rrf);
+      delete rrf;
+    }
   } catch (std::exception& e) {
     std::cout << RED << e.what() << RESET << std::endl;
   }

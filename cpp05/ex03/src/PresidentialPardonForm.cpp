@@ -1,7 +1,7 @@
 #include "PresidentialPardonForm.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm(std::string const& target)
-    : Form("presidential_pardon", 25, 5), _target(target) {
+    : Form("presidential pardon", 25, 5), _target(target) {
   std::cout << "< PresidentialPardonForm(string&) ctor >" << std::endl;
   return;
 }
