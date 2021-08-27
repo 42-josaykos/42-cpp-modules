@@ -19,7 +19,7 @@ void to_int(double n, std::string s) {
 void to_char(double n, std::string s) {
   if (!isdigit(s[0]) && s.length() >= 3) {
     std::cout << "char: impossible" << std::endl;
-  } else if (std::isprint(n)) {
+  } else if (n >= 32 && n < 127) {
     std::cout << "char: '" << static_cast<char>(n) << "'" << std::endl;
   } else {
     std::cout << "char: Non displayable" << std::endl;
