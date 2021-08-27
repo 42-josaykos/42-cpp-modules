@@ -22,7 +22,7 @@ $(OBJDIR)%.o: $(SRCDIR)%.cpp
 	$(CXX) $(CXXFLAGS) $(INC) -c $< -o $@
 
 clean:
-	rm -rf $(OBJDIR) vgcore* *_shrubbery.txt
+	rm -rf $(OBJDIR) vgcore*
 
 fclean: clean
 	rm -rf $(NAME) a.out
