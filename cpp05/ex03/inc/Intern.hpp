@@ -24,6 +24,11 @@ public:
   };
 
   Form* makeForm(std::string const& name, std::string const& target);
+
+private:
+  static Form* makePardon(std::string const& target);
+  static Form* makeShrubbery(std::string const& target);
+  static Form* makeRobotomy(std::string const& target);
 };
 
 #endif

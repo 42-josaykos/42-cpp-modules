@@ -21,13 +21,13 @@ Intern& Intern::operator=(Intern const& rhs) {
   return *this;
 }
 
-Form* makeShrubbery(std::string const& target) {
+Form* Intern::makeShrubbery(std::string const& target) {
   return new ShrubberyCreationForm(target);
 }
-Form* makeRobotomy(std::string const& target) {
+Form* Intern::makeRobotomy(std::string const& target) {
   return new RobotomyRequestForm(target);
 }
-Form* makePardon(std::string const& target) {
+Form* Intern::makePardon(std::string const& target) {
   return new PresidentialPardonForm(target);
 }
 
