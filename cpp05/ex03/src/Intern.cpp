@@ -21,34 +21,45 @@ Intern& Intern::operator=(Intern const& rhs) {
   return *this;
 }
 
+Form* makeShrubbery(std::string const& target) {
+  return new ShrubberyCreationForm(target);
+}
+Form* makeRobotomy(std::string const& target) {
+  return new RobotomyRequestForm(target);
+}
+Form* makePardon(std::string const& target) {
+  return new PresidentialPardonForm(target);
+}
+
 Form* Intern::makeForm(std::string const& name, std::string const& target) {
+
   Form* form = NULL;
-  int   nb = 0;
 
-  const std::string form_name[3] = {"shrubbery creation", "robotomy request",
-                                    "presidential pardon"};
+  typedef Form* (*F)(std::string const& target);
 
-  for (; nb < 3; nb++) {
-    if (form_name[nb].compare(name) == 0) {
+  struct FormTypes {
+    std::string form_name;
+    F           func;
+  };
+
+  FormTypes forms[] = {
+      {"presidential pardon", &makePardon},
+      {"robotomy request", &makeRobotomy},
+      {"shrubbery creation", &makeShrubbery},
+  };
+
+  for (int i = 0; i < 3; i++) {
+    if (forms[i].form_name == name) {
+      form = forms[i].func(target);
       break;
     }
   }
-
-  switch (nb) {
-  case 0:
-    form = new ShrubberyCreationForm(target);
-    break;
-  case 1:
-    form = new RobotomyRequestForm(target);
-    break;
-  case 2:
-    form = new PresidentialPardonForm(target);
-    break;
-  default:
-    std::cout << MAGENTA << name << " form doesn't exist" << RESET << std::endl;
+  if (form) {
+    std::cout << GREEN << "Intern creates " << *form << RESET << std::endl;
+    return (form);
+  } else {
     throw InvalidFormName();
   }
 
-  std::cout << GREEN << "Intern creates " << *form << RESET << std::endl;
   return form;
 }

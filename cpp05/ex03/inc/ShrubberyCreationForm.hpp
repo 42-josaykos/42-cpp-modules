@@ -12,6 +12,8 @@ public:
 
   ShrubberyCreationForm& operator=(ShrubberyCreationForm const& rhs);
 
+  void makeForm(std::string target) { ShrubberyCreationForm form(target); }
+
 private:
   ShrubberyCreationForm(void);
   using Form::beSigned;
