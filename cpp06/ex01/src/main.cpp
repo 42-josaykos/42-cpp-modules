@@ -27,13 +27,15 @@ int main(int argc, char** argv) {
     idata->s2 = "TEST";
   }
 
-  std::cout << "idata : " << idata->s1 << idata->n << idata->s2 << std::endl;
+  std::cout << "idata : " << idata->s1 << idata->n << idata->s2 << " : "
+            << idata << std::endl;
 
   raw = serialize(idata);
   std::cout << "raw : " << raw << std::endl;
 
   odata = deserialize(raw);
-  std::cout << "odata : " << odata->s1 << odata->n << odata->s2 << std::endl;
+  std::cout << "odata : " << odata->s1 << odata->n << odata->s2 << " : "
+            << odata << std::endl;
 
   delete idata;
 
