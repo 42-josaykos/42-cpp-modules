@@ -20,7 +20,7 @@ public:
     return *this;
   }
 
-  double const& getValue(void) { return this->value; }
+  double const& getValue(void) const { return this->value; }
 
 private:
   Number(void);

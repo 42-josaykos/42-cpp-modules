@@ -12,7 +12,7 @@ template <typename T> void swap(T& p1, T& p2) {
 }
 
 // Compares two variables and return the smallest one
-template <typename T> T& min(T& p1, T& p2) {
+template <typename T> T const& min(T const& p1, T const& p2) {
   if (p1 < p2) {
     return p1;
   } else {
@@ -21,7 +21,7 @@ template <typename T> T& min(T& p1, T& p2) {
 }
 
 // Compares two variables and return the biggest one
-template <typename T> T& max(T& p1, T& p2) {
+template <typename T> T const& max(T const& p1, T const& p2) {
   if (p1 > p2) {
     return p1;
   } else {
