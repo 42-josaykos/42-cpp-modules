@@ -15,6 +15,8 @@ public:
   T&       operator[](unsigned int i);
   const T& operator[](unsigned int i) const;
 
+  unsigned int size() const;
+
 private:
   int _size;
   T*  _content;
@@ -51,10 +53,14 @@ template <typename T> Array<T>::~Array(void) {
   return;
 }
 
+template <typename T> unsigned int Array<T>::size() const {
+  return this->_size;
+}
+
 /******* operators ***********************************************************/
 
 template <typename T> Array<T>& Array<T>::operator=(Array const& rhs) {
-  if (this != &rhs) {
+  if (this != &rhs && this->_size) {
     delete this->_content;
     this->_content = new T[rhs._size];
     this->_size = rhs._size;
@@ -73,8 +79,12 @@ template <typename T> const T& Array<T>::operator[](unsigned int i) const {
   return this->_content[i];
 }
 
-template <typename T> std::ostream& operator<<(std::ostream& out, T& inst) {
-  return out << inst;
+template <typename T>
+std::ostream& operator<<(std::ostream& out, Array<T>& inst) {
+  if (inst.size() > 0) {
+    return out << inst[0];
+  }
+  return out << 0;
 }
 
 #endif
