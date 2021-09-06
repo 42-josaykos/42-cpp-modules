@@ -6,7 +6,6 @@ INC = -Iinc
 
 SRCDIR = src/
 SRCS =	main.cpp \
-				Array.cpp
 
 OBJDIR = obj/
 OBJ = $(addprefix $(OBJDIR),$(SRCS:.cpp=.o))
