@@ -6,8 +6,9 @@
 const std::string RESET = "\033[0m";
 const std::string RED = "\033[31m";
 
-template <typename T> class Array {
+/******* template definition **************************************************/
 
+template <typename T> class Array {
 public:
   Array(void);
   Array(unsigned int const& n);
@@ -31,6 +32,9 @@ private:
   T*           _content;
 };
 
+/******* ctors & dtor *********************************************************/
+
+// default
 template <typename T> Array<T>::Array(void) {
   // std::cout << "{ default ctor }" << std::endl;
   this->_content = new T[0]();
@@ -38,6 +42,7 @@ template <typename T> Array<T>::Array(void) {
   return;
 }
 
+// single param int
 template <typename T> Array<T>::Array(unsigned int const& n) {
   // std::cout << "{ size ctor }" << std::endl;
   this->_content = new T[n]();
@@ -46,6 +51,7 @@ template <typename T> Array<T>::Array(unsigned int const& n) {
   return;
 }
 
+// copy
 template <typename T> Array<T>::Array(Array const& src) {
   // std::cout << "{ copy ctor }" << std::endl;
   this->_content = new T[src._size];
@@ -56,18 +62,26 @@ template <typename T> Array<T>::Array(Array const& src) {
   return;
 }
 
+// dtor
 template <typename T> Array<T>::~Array(void) {
   // std::cout << "{ dtor }" << std::endl;
   delete[] this->_content;
   return;
 }
 
+/******* member functions *****************************************************/
+
+// return _size
 template <typename T> unsigned int Array<T>::size() const {
   return this->_size;
 }
 
+// delete instance
+template <typename T> void Array<T>::destroy() const { delete this; }
+
 /******* operators ***********************************************************/
 
+// assignation
 template <typename T> Array<T>& Array<T>::operator=(Array const& rhs) {
   if (this != &rhs && this->_size) {
     delete this->_content;
@@ -80,6 +94,7 @@ template <typename T> Array<T>& Array<T>::operator=(Array const& rhs) {
   return *this;
 };
 
+// [] access
 template <typename T> T& Array<T>::operator[](unsigned int i) {
   if (i < 0 || i >= this->_size) {
     throw ReadAccessMemory();
@@ -87,6 +102,7 @@ template <typename T> T& Array<T>::operator[](unsigned int i) {
   return this->_content[i];
 }
 
+// [] access, const return
 template <typename T> const T& Array<T>::operator[](unsigned int i) const {
   if (i < 0 || i >= this->_size) {
     throw ReadAccessMemory();
@@ -94,8 +110,7 @@ template <typename T> const T& Array<T>::operator[](unsigned int i) const {
   return this->_content[i];
 }
 
-template <typename T> void Array<T>::destroy() const { delete this; }
-
+// pointer display
 template <typename T>
 std::ostream& operator<<(std::ostream& out, Array<T>& inst) {
   if (inst.size() > 0) {
