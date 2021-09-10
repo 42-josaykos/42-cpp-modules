@@ -17,11 +17,14 @@ public:
   int  shortestSpan() const;
   int  longestSpan() const;
 
-  std::vector<int> content;
+  std::vector<int> getContent() const;
 
 private:
   Span(void);
-  unsigned int size;
+  std::vector<int> content;
+  unsigned int     size;
 };
+
+std::ostream& operator<<(std::ostream& out, Span const& inst);
 
 #endif

@@ -62,3 +62,20 @@ int Span::longestSpan() const {
 
   return max - min;
 }
+
+std::vector<int> Span::getContent() const { return this->content; }
+
+std::ostream& operator<<(std::ostream& out, Span const& inst) {
+
+  std::vector<int>::const_iterator it;
+  std::vector<int>                 tmp = inst.getContent();
+  out << "[ ";
+  for (it = tmp.begin(); it != tmp.end(); it++) {
+    out << *it;
+    if ((it + 1) != tmp.end()) {
+      out << ", ";
+    }
+  }
+  out << " ]";
+  return out;
+}
