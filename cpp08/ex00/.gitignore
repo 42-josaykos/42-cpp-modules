@@ -1,5 +1,5 @@
 easyfind
-a.out
+a.out*
 obj/
 tags
 .vscode-ctags
