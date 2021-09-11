@@ -1,5 +1,6 @@
 #include "MutantStack.hpp"
 #include <iostream>
+#include <list>
 #include <stack>
 
 int main() {
@@ -34,11 +35,57 @@ int main() {
 
   std::stack<int> s(mstack);
 
+  std::cout << std::endl;
   std::cout << "--- Other Tests ---" << std::endl;
   std::cout << "mstack.empty(): " << mstack.empty() << std::endl;
   std::cout << "mstack.size(): " << mstack.size() << std::endl;
   std::cout << "mstack.top(): " << mstack.top() << std::endl;
   std::cout << "*mstack.begin(): " << *mstack.begin() << std::endl;
   std::cout << "*mstack.end(): " << *mstack.end() << std::endl;
+
+  std::cout << std::endl;
+  std::cout << "--- Tests with list and string  ---" << std::endl;
+
+  MutantStack<std::string> strstack;
+  std::list<std::string>   strlist;
+
+  std::cout << "< strstack.push() => \"Hello\", \"world\" >" << std::endl;
+  std::cout << "< strlist.push_back() => \"Hello\", \"world\" >" << std::endl;
+  strstack.push("Hello");
+  strstack.push("world");
+  strlist.push_back("Hello");
+  strlist.push_back("world");
+
+  std::cout << "< strstack.pop() >" << std::endl;
+  std::cout << "< strlist.pop() >" << std::endl;
+  strstack.pop();
+  strlist.pop_back();
+
+  std::cout << "strstack.size():" << strstack.size() << std::endl;
+  std::cout << "strlist.size():" << strlist.size() << std::endl;
+
+  std::cout << "< strstack.push() => \"42\", \"Student\" >" << std::endl;
+  std::cout << "< strlist.push_back() => \"42\", \"Student\" >" << std::endl;
+  strstack.push("42");
+  strstack.push("Student");
+  strlist.push_back("42");
+  strlist.push_back("Student");
+
+  MutantStack<std::string>::iterator itstack = strstack.begin();
+  MutantStack<std::string>::iterator itestack = strstack.end();
+  std::list<std::string>::iterator   itlist = strlist.begin();
+  std::list<std::string>::iterator   itelist = strlist.end();
+
+  std::cout << "< str stack content >" << std::endl;
+  for (; itstack != itestack; ++itstack) {
+    std::cout << *itstack << std::endl;
+  }
+
+  std::cout << "< str list content >" << std::endl;
+
+  for (; itlist != itelist; ++itlist) {
+    std::cout << *itlist << std::endl;
+  }
+
   return 0;
 }
