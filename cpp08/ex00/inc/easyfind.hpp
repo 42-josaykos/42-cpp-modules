@@ -8,7 +8,7 @@ template <typename T> int easyfind(T& container, int const& val) {
   if (it == container.end()) {
     throw std::exception();
   }
-  return *it;
+  return std::distance(container.begin(), it);
 }
 
 #endif
