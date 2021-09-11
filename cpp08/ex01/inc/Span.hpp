@@ -14,9 +14,13 @@ public:
   Span& operator=(Span const& rhs);
 
   void addNumber(int const& number);
-  int  shortestSpan() const;
-  int  longestSpan() const;
+  void addNumber(std::vector<int>& range);
+  void addNumber(unsigned int from, unsigned int to, int val);
 
+  int shortestSpan() const;
+  int longestSpan() const;
+
+  /// For printing on stdout in main test during project defense
   std::vector<int> getContent() const;
 
 private:
